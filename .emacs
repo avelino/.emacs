@@ -32,8 +32,8 @@
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation)
 
-;;; load git-gutter
-(add-to-list 'load-path "~/.emacs.d/emacs-git-gutter/")
+;;; load git-guntter
+(add-to-list 'load-path "~/.emacs.d/emacs-git-guntter/")
 (require 'git-gutter)
 (global-git-gutter-mode +1)
 (add-hook 'ruby-mode-hook 'git-gutter-mode)
