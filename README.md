@@ -1,3 +1,3 @@
-# EMACS
+# .emacs
 
 Love yo faces!
