@@ -1,7 +1,13 @@
+
 (custom-set-variables
  '(backup-by-copying t)
  '(backup-directory-alist (quote (("~/.emacs_backups"))))
  '(word-wrap t))
+
+;;; disable backup
+(setq backup-inhibited t)
+;;; disable auto save
+(setq auto-save-default nil)
 
 ;;; line numbers.
 (line-number-mode t)
