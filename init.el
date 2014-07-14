@@ -55,13 +55,11 @@
                 evil
                 evil-numbers
                 paredit
-                erlang
                 auto-complete
                 markdown-mode
                 yaml-mode
                 slime
                 fiplr
-                php-mode
                 go-mode
                 python-mode
                 py-autopep8
@@ -201,18 +199,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 
 ;; .md files should use markdown-mode
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; php templates should just use html-mode
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . html-mode))
-
-;; make php-mode indentation vaguely sane
-(add-hook 'php-mode-hook
-  (lambda ()
-    (setq indent-tabs-mode t)
-    (setq tab-width 4)
-    (setq evil-shift-width 4)
-    (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
-    (c-set-offset 'substatement-open 0)))
 
 ;; make python-mode indentation vaguely sane
 (add-hook 'python-mode-hook

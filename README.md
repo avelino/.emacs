@@ -8,6 +8,12 @@ Vim-flavoured Emacs, since it has Evil installed.
 
 ![Screenshot](http://i.imgur.com/aTGH1cs.png)
 
+## Pre-requisites
+
+* Python 2.7
+* autopep8 (python package)
+
+
 ## Included packages
 
 I only add packages to my config file if I feel a significant benefit in
@@ -26,10 +32,6 @@ built-in anyway.
     - Go doesn't work well at all;
   * Python-mode
     - Python doesn't work well at all;
-  * PHP-mode
-    - this doesn't ship with Emacs and is a bit lacking really
-    - mixed HTML/PHP doesn't work well at all; I use html-mode instead
-  * Erlang
   * Auto-complete
     - use <kbd>TAB</kbd> to auto-complete while typing
   * IDO-mode
@@ -50,8 +52,6 @@ built-in anyway.
     - Default: 2 spaces
     - Python: 4 spaces
     - Ruby: 2 spaces
-    - PHP: tabs
-    - Erlang: 4 spaces
   * Backup files etc
     - completely disabled
   * Highlight matching braces
