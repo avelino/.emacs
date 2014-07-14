@@ -1,2 +1,5 @@
-auto-save-list
-ac-comphist.dat
+elpa/
+auto-save-list/
+*.dat
+custom.el
+url/
