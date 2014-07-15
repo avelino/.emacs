@@ -63,7 +63,8 @@
                 go-mode
                 python-mode
                 py-autopep8
-                git-gutter-fringe))
+                git-gutter-fringe
+                fill-column-indicator))
 
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
@@ -189,10 +190,16 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  '(ac-auto-start nil)
  ;; only show trailing whitespace
  '(whitespace-style '(face trailing))
- ;; ruby-mode wants to add # -* coding: utf-8 -* everywhere: fuck off
+ ;; *-mode wants to add # -* coding: utf-8 -* everywhere: fuck off
+ '(python-insert-encoding-magic-comment nil)
  '(ruby-insert-encoding-magic-comment nil)
  ;; ruby-mode's default indentation is hideous
- '(ruby-deep-indent-paren nil))
+ '(ruby-deep-indent-paren nil)
+ '(fill-column 79))
+
+(setq fiplr-ignored-globs
+    '((directories (".git" ".svn"))
+      (files ("*.pyc"))))
 
 ;; treat underscores as word chars
 (modify-syntax-entry ?_ "w")
@@ -222,6 +229,21 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
                          (t default-color))))
         (set-face-background 'mode-line (car color))
         (set-face-foreground 'mode-line (cdr color))))))
+
+;; 79 limit line marker
+(setq fci-rule-width 2)
+(setq fci-rule-color "darkred")
+(setq-default fci-rule-column 79)
+(setq fci-handle-truncate-lines nil)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
+(defun auto-fci-mode (&optional unused)
+   (if (> (window-width) fci-rule-column)
+      (fci-mode 1)
+      (fci-mode 0))
+ )
+(add-hook 'after-change-major-mode-hook 'auto-fci-mode)
+(add-hook 'window-configuration-change-hook 'auto-fci-mode)
 
 ;;; -- User config
 
