@@ -127,6 +127,9 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
+;; show line numbers
+(global-linum-mode 1)
+
 ;; global key mappings
 (mapc (lambda (mapping)
         (global-set-key (kbd (car mapping)) (cdr mapping)))
