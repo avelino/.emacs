@@ -2,6 +2,9 @@
 
 ;;; --- Bootstrap
 
+(when (version< emacs-version "24.1")
+  (error "Prelude requires at least GNU Emacs 24.1, but you're running %s" emacs-version))
+
 ;; elpa package management
 (require 'package)
 
