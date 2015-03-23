@@ -63,11 +63,15 @@
                 yaml-mode
                 slime
                 fiplr
-                go-mode
                 python-mode
                 py-autopep8
                 git-gutter-fringe
-                fill-column-indicator))
+                fill-column-indicator
+                go-mode
+                company-go
+                go-eldoc
+                go-projectile
+                gotest))
 
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
