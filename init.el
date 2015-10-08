@@ -57,6 +57,7 @@
 (dependencies '(molokai-theme
                 evil
                 evil-numbers
+                helm
                 paredit
                 auto-complete
                 markdown-mode
@@ -68,6 +69,7 @@
                 git-gutter-fringe
                 fill-column-indicator
                 go-mode
+                flymake-go
                 company-go
                 go-eldoc
                 go-projectile
@@ -206,6 +208,9 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  ;; ruby-mode's default indentation is hideous
  '(ruby-deep-indent-paren nil)
  '(fill-column 79))
+
+;; helm mode
+(helm-mode 1)
 
 (setq fiplr-ignored-globs
     '((directories (".git" ".svn"))
