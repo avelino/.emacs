@@ -55,9 +55,10 @@
 ;;; -- Dependencies
 
 (dependencies '(molokai-theme
-                evil
-                evil-numbers
                 helm
+                highlight-escape-sequences
+                whitespace-cleanup-mode
+                yasnippet
                 paredit
                 auto-complete
                 markdown-mode
@@ -73,7 +74,8 @@
                 company-go
                 go-eldoc
                 go-projectile
-                gotest))
+                gotest
+                dockerfile-mode))
 
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
@@ -105,9 +107,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 
 ;; make pretty colors
 (load-theme 'molokai t)
-
-;; emacs is actually vim in disguise
-(evil-mode t)
 
 ;; show the column number in the status bar
 (column-number-mode t)
@@ -146,26 +145,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         ;; find file in project
         ("C-x f"   . fiplr-find-file)))
 
-;; evil normal mode key mappings
-(mapc (lambda (mapping)
-        (define-key evil-normal-state-map (kbd (car mapping)) (cdr mapping)))
-      `(;; increment number under point
-        ("C-k"   . evil-numbers/inc-at-pt)
-        ;; decrement number under point
-        ("C-j"   . evil-numbers/dec-at-pt)))
-
-;; allow the arrow keys to be used for cycling windows
-(mapc (lambda (keys)
-        (let ((letter (format "C-w %s" (car keys)))
-              (arrow  (format "C-w %s" (cdr keys))))
-          (define-key evil-normal-state-map (kbd arrow) (kbd letter))
-          (define-key evil-motion-state-map (kbd arrow) (kbd letter))
-          (define-key evil-visual-state-map (kbd arrow) (kbd letter))))
-      '(("h" . "<left>")
-        ("j" . "<down>")
-        ("k" . "<up>")
-        ("l" . "<right>")))
-
 ;; show whitespace...
 (global-whitespace-mode t)
 
@@ -174,8 +153,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 
 ;; customize some global vars
 (custom-set-variables
- ;; by default evil binds C-z
- '(evil-toggle-key (kbd "C-\\"))
  ;; fuck #autosave# files
  '(auto-save-default nil)
  ;; fuck backup~ files
@@ -194,8 +171,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  '(tab-width 4)
  ;; 2 spaces is a nice indent amount
  '(tab-stop-list (number-sequence 2 200 2))
- ;; evil-mode indent 2 spaces when shifting
- '(evil-shift-width 2)
  ;; auto-complete on tab key
  '(ac-trigger-key "TAB")
  ;; only auto-complete when asked
@@ -208,6 +183,8 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  ;; ruby-mode's default indentation is hideous
  '(ruby-deep-indent-paren nil)
  '(fill-column 79))
+
+(setq make-backup-files nil)
 
 ;; helm mode
 (helm-mode 1)
@@ -225,8 +202,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;; make python-mode indentation vaguely sane
 (add-hook 'python-mode-hook
   (lambda ()
-    (setq tab-width 4)
-    (setq evil-shift-width 4)))
+    (setq tab-width 4)))
 
 (add-hook 'before-save-hook 'py-autopep8-before-save)
 
@@ -238,8 +214,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
   (add-hook 'post-command-hook
     (lambda ()
       (let ((color (cond ((minibufferp) default-color)
-                         ((evil-insert-state-p) '("#e80000" . "#ffffff"))
-                         ((evil-emacs-state-p)  '("#af00d7" . "#ffffff"))
                          ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
                          (t default-color))))
         (set-face-background 'mode-line (car color))
