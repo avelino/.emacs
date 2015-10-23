@@ -75,7 +75,9 @@
                 go-eldoc
                 go-projectile
                 gotest
-                dockerfile-mode))
+                dockerfile-mode
+                magit))
+
 
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
