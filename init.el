@@ -13,13 +13,18 @@
 
 ;; melpa (github-based) source
 (add-to-list 'package-archives
-  '("melpa" .
-      "http://melpa.milkbox.net/packages/"))
+	     '("melpa" .
+	       "http://melpa.milkbox.net/packages/"))
 
 ;; marmalade source
 (add-to-list 'package-archives
-  '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
+	     '("marmalade" .
+	       "http://marmalade-repo.org/packages/"))
+
+;; org source
+(add-to-list 'package-archives
+	     '("org" .
+	       "http://orgmode.org/elpa/"))
 
 ;; start the package system
 (package-initialize)
@@ -76,7 +81,8 @@
                 go-projectile
                 gotest
                 dockerfile-mode
-                magit))
+                magit
+                org))
 
 
 ;; Do what I mean for the TAB key.
