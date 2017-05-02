@@ -82,6 +82,7 @@
 (desktop-save-mode 0)
 
 (set-default-font "Hack 24")
+
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-to-list 'auto-mode-alist '("\\.psql$" . sql-mode))
