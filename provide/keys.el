@@ -29,4 +29,11 @@
 (global-set-key (kbd "C-x c g") (lambda () (interactive) (call-interactively 'rgrep)))
 (define-key ctl-x-r-map "b" 'bookmark-jump-or-find-file)
 
-(provide 'core-keys)
+;; Mac
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'alt)
+  (setq mac-command-modifier 'meta)
+  (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
+  )
+
+(provide 'keys)

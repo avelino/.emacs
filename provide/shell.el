@@ -11,7 +11,7 @@
   '("*snarfed*" "*heaven0*" "*heaven1*" "*heaven2*" "*heaven3*"))
 (defvar my-shells (append my-local-shells my-remote-shells))
 
-(require 'tramp)
+;; (require 'tramp)
 
 (custom-set-variables
  '(tramp-default-method "ssh")          ; uses ControlMaster
@@ -106,4 +106,4 @@ comint-replace-by-expanded-history-before-point."
 ;; for other code, e.g. emacsclient in TRAMP ssh shells and automatically
 ;; closing completions buffers, see the links above.
 
-(provide 'core-shell)
+(provide 'shell)

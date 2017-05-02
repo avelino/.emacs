@@ -81,13 +81,14 @@
 (show-paren-mode 1)
 (desktop-save-mode 0)
 
-(if (eq system-type 'darwin)
-    (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
-  (set-frame-font "Hack"))
-
+(set-default-font "Hack 24")
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-to-list 'auto-mode-alist '("\\.psql$" . sql-mode))
 
-(provide 'core)
+;; full screen
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(fullscreen . fullheight))
+
+(provide 'base)
 ;;; core ends here

@@ -7,7 +7,7 @@
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'go-mode-hook 'setup-go-mode-compile)
   (add-hook 'go-mode-hook #'smartparens-mode)
-  (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+  ;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
   (add-hook 'go-mode-hook (lambda ()
 			     (setq tab-width 4)
 			     (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
@@ -27,6 +27,20 @@
 
 (use-package flymake-go)
 
+(use-package flycheck-gometalinter
+  :ensure t
+  :config
+  (progn
+    (flycheck-gometalinter-setup))
+  ;; skips 'vendor' directories and sets GO15VENDOREXPERIMENT=1
+  (setq flycheck-gometalinter-vendor t)
+  ;; only show errors
+  (setq flycheck-gometalinter-errors-only t)
+  ;; only run fast linters
+  (setq flycheck-gometalinter-fast t)
+  ;; use in tests files
+  (setq flycheck-gometalinter-test t))
+
 (use-package go-eldoc
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
@@ -37,4 +51,4 @@
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet")))
 
-(provide 'core-go)
+(provide 'go-lang)

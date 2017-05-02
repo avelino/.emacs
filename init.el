@@ -4,34 +4,27 @@
 
 ;;; Code:
 
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(add-to-list 'load-path (concat user-emacs-directory "core"))
+(add-to-list 'load-path (concat user-emacs-directory "provide"))
 (add-to-list 'load-path "~/.emacs.d/vendor/")
 
-(require 'core)
-(require 'core-extensions)
-(require 'core-functions)
-(require 'core-dired)
-(require 'core-shell)
-(require 'core-aliases)
-(require 'core-keys)
-(require 'core-ui)
+(require 'base)
+(require 'extensions)
+(require 'functions)
+(require 'shell)
+(require 'aliases)
+(require 'keys)
+(require 'ui)
 
-(require 'core-c)
-(require 'core-elixir)
-(require 'core-go)
-(require 'core-haskell)
-(require 'core-python)
-(require 'core-web)
+;; languages
+(require 'c-lang)
+(require 'elixir-lang)
+(require 'go-lang)
+(require 'haskell-lang)
+(require 'python-lang)
+(require 'web-lang)

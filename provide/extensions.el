@@ -11,6 +11,13 @@
 
 (use-package ag)
 
+(use-package fiplr
+  :config
+  (setq fiplr-ignored-globs '((directories (".git" ".svn" "vendor"))
+			      (files (".*" "*.jpg" "*.png" "*.zip" "*~"))))
+  :bind
+  ("C-x f" . fiplr-find-file))
+
 (use-package anzu
   :config
   (global-anzu-mode +1)
@@ -22,22 +29,6 @@
   ("M-TAB" . company-complete)
   :config
   (add-hook 'after-init-hook 'global-company-mode))
-
-(use-package counsel
-  :config
-  (setq counsel-find-file-ignore-regexp ".*\.egg-info\\|__pycache__\\|.cache")
-  :bind
-  ("M-x" . counsel-M-x)
-  ("C-x C-m" . counsel-M-x)
-  ("C-x C-f" . counsel-find-file)
-  ("C-x c k" . counsel-yank-pop))
-
-(use-package counsel-projectile
-  :bind
-  ("C-x v" . counsel-projectile)
-  ("C-x c p" . counsel-projectile-ag)
-  :config
-  (counsel-projectile-on))
 
 (use-package dockerfile-mode)
 
@@ -73,8 +64,6 @@
     (flycheck-pos-tip-mode +1))
   ;; Enable flycheck
   (add-hook 'after-init-hook #'global-flycheck-mode))
-
-(use-package git-gutter)
 
 (use-package hl-line
   :config
@@ -160,7 +149,7 @@
 (use-package org
   :config
   (setq org-directory "~/DropBox/org-mode"
-        org-agenda-files (list "~/Google Drive/org-mode/ideas.org")
+        org-agenda-files (list (concat org-directory "/ideas.org"))
         org-default-notes-file (concat org-directory "/todo.org"))
   (org-babel-do-load-languages
    'org-babel-load-languages '((python . t)))
@@ -310,4 +299,9 @@
   (diminish-major-mode 'emacs-lisp-mode-hook "el")
   (diminish-major-mode 'python-mode-hook "Py"))
 
-(provide 'core-extensions)
+(use-package yaml-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
+
+(provide 'extensions)

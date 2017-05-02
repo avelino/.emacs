@@ -186,4 +186,4 @@ If point was already at that position, move point to beginning of line."
 	 (prev-symbol (cdr (nth (1- current-symbol) names-and-pos))))
     (imenu prev-symbol)))
 
-(provide 'core-functions)
+(provide 'functions)

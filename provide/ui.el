@@ -12,14 +12,14 @@
 
 (use-package doom-themes
   :config
-  (load-theme 'doom-one t)
+  (load-theme 'doom-molokai t)
   (let ((c '((class color) (min-colors 89)))
       (black          "#181e26")
       (white          "#DFDFDF")
       (blue           "#51afef"))
 
     (custom-theme-set-faces
-     'doom-one
+     'doom-molokai
      ;; Doom faces
      `(show-paren-match          ((,c (:foreground ,black :background ,white))))
      ;; Ivy
@@ -34,11 +34,12 @@
   (add-hook 'minibuffer-setup-hook 'doom-brighten-minibuffer)
   (add-hook 'find-file-hook 'doom-buffer-mode))
 
-(use-package git-gutter-fringe)
+(use-package git-gutter-fringe+)
 
-(use-package git-gutter
+(use-package git-gutter+
   :config
-  (require 'git-gutter-fringe)
+  (set-face-attribute 'fringe nil :background nil)
+  (require 'git-gutter-fringe+)
   (global-git-gutter-mode +1)
   (define-fringe-bitmap 'git-gutter-fr:added
     [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
@@ -290,4 +291,4 @@ e.g. (doom-fix-unicode \"DejaVu Sans\" ?⚠ ?★ ?λ)"
 
 (setq-default mode-line-format (doom-mode-line))
 
-(provide 'core-ui)
+(provide 'ui)
