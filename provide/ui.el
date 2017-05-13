@@ -10,29 +10,9 @@
 
 (use-package all-the-icons)
 
-(use-package doom-themes
-  :config
-  (load-theme 'doom-molokai t)
-  (let ((c '((class color) (min-colors 89)))
-      (black          "#181e26")
-      (white          "#DFDFDF")
-      (blue           "#51afef"))
-
-    (custom-theme-set-faces
-     'doom-molokai
-     ;; Doom faces
-     `(show-paren-match          ((,c (:foreground ,black :background ,white))))
-     ;; Ivy
-     `(ivy-current-match         ((,c (:background ,blue))))
-     ;; org-mode
-     `(org-level-2               ((,c (:foreground ,blue))))
-     `(org-level-3               ((,c (:foreground ,white))))
-     `(org-level-4               ((,c (:foreground ,white))))
-     `(org-level-5               ((,c (:foreground ,white))))
-     `(org-level-6               ((,c (:foreground ,white))))))
-  (require 'doom-neotree)
-  (add-hook 'minibuffer-setup-hook 'doom-brighten-minibuffer)
-  (add-hook 'find-file-hook 'doom-buffer-mode))
+(use-package rebecca-theme)
+;; (use-package caleb-theme)
+;; (use-package dracula-theme)
 
 (use-package git-gutter-fringe+)
 
