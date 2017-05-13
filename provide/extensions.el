@@ -98,6 +98,34 @@
   (setq ivy-use-virtual-buffers nil)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
+(use-package ido
+  :config
+  (ido-mode 'both)
+  (ido-everywhere t)
+  (setq ido-auto-merge-delay-time 4
+	ido-enable-flex-matching t
+	ido-max-window-height 1
+	ido-use-virtual-buffers t
+	;; ido-use-filename-at-point 'guess
+	ido-create-new-buffer 'always
+	ido-file-extensions-order '(".org" ".txt" ".py" ".emacs" ".xml" ".el"
+				    ".ini" ".cfg" ".cnf" ".conf" ".go" ".sh")
+	ido-ignore-extensions t
+	ido-ignore-files '("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./"
+			   "\\.orig$")))
+
+(use-package ibuffer
+  :bind
+  ("C-x C-b" . ibuffer))
+
+(use-package ido-grid-mode
+  :ensure t
+  :init
+  (ido-grid-mode 1)
+  :config
+  (setq ido-grid-mode-max-rows 4
+	ido-grid-mode-min-rows 4)
+  (setq ido-max-window-height (+ ido-grid-mode-max-rows 1)))
 
 (use-package hlinum
   :config
@@ -234,8 +262,18 @@
 (use-package smartparens)
 
 (use-package smex
+  :ensure t
   :config
-  (setq smex-save-file (expand-file-name "smex-items" temp-dir)))
+  (setq smex-save-file (expand-file-name "smex-items" temp-dir))
+  :bind
+  ("M-x" . smex)
+  ("M-X" . smex-major-mode-commands)
+  ;; if you want to be able to M-x without meta
+  ("C-x C-m" . smex)
+  ;; default Emacs M-x
+  ("C-c C-c M-x" . execute-extended-command)
+  :init
+  (smex-initialize))
 
 (use-package syntax-subword
   :config
