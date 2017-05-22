@@ -10,9 +10,10 @@
 
 (use-package all-the-icons)
 
-(use-package rebecca-theme)
+;; (use-package rebecca-theme)
 ;; (use-package caleb-theme)
 ;; (use-package dracula-theme)
+(use-package monokai-theme)
 
 (use-package git-gutter-fringe+)
 
