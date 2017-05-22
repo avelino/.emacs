@@ -151,6 +151,8 @@
 
 (use-package magit-popup)
 
+(use-package vdiff-magit)
+
 (use-package markdown-mode)
 
 (use-package multiple-cursors
