@@ -1,5 +1,6 @@
 ;;; package --- Main init file
 ;;; Commentary:
+;;; avelino's GNU Emacs configuration
 ;;; This is my init file
 
 ;;; Code:
@@ -11,8 +12,9 @@
 (package-initialize)
 
 (add-to-list 'load-path (concat user-emacs-directory "provide"))
-(add-to-list 'load-path "~/.emacs.d/vendor/")
+(add-to-list 'load-path (concat user-emacs-directory "vendor"))
 
+;; basic packages
 (require 'base)
 (require 'extensions)
 (require 'functions)
