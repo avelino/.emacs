@@ -270,6 +270,6 @@ e.g. (doom-fix-unicode \"DejaVu Sans\" ?⚠ ?★ ?λ)"
                                                        ,(1+ (string-width (format-mode-line rhs)))))))))
       (list lhs middle rhs))))
 
-(setq-default mode-line-format (doom-mode-line))
+; (setq-default mode-line-format (doom-mode-line))
 
 (provide 'ui)
