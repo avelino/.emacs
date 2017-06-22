@@ -18,6 +18,7 @@
   (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
   (add-hook 'web-mode-hook 'jsx-flycheck))
 
+(use-package typescript-mode)
 
 (defadvice web-mode-highlight-part (around tweak-jsx activate)
   (if (equal web-mode-content-type "jsx")
