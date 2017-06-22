@@ -89,7 +89,9 @@
   :bind
   ("C-c m l" . imenu-list-minor-mode))
 
+;; disabled
 (use-package ivy
+  :disabled
   :bind
   ("C-x s" . swiper)
   ("C-x C-r" . ivy-resume)
@@ -106,7 +108,7 @@
 	ido-enable-flex-matching t
 	ido-max-window-height 1
 	ido-use-virtual-buffers t
-	;; ido-use-filename-at-point 'guess
+	ido-use-filename-at-point 'guess
 	ido-create-new-buffer 'always
 	ido-file-extensions-order '(".org" ".txt" ".py" ".emacs" ".xml" ".el"
 				    ".ini" ".cfg" ".cnf" ".conf" ".go" ".sh")
@@ -127,6 +129,12 @@
 	ido-grid-mode-min-rows 4)
   (setq ido-max-window-height (+ ido-grid-mode-max-rows 1)))
 
+(use-package flx-ido
+  :ensure t
+  :config
+  (flx-ido-mode t)
+  (setq ido-enable-flex-matching t))
+
 (use-package hlinum
   :config
   (hlinum-activate))
@@ -138,7 +146,7 @@
 
 (use-package magit
   :config
-  (setq magit-completing-read-function 'ivy-completing-read)
+  ;; (setq magit-completing-read-function 'ivy-completing-read)
   :bind
   ;; Magic
   ("C-x g s" . magit-status)
@@ -220,7 +228,7 @@
   (setq projectile-enable-caching t
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
 	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
-  (setq projectile-completion-system 'ivy)
+  ;; (setq projectile-completion-system 'ivy)
   (projectile-global-mode)
   :bind
   ("C-x c a" . projectile-ag))
@@ -339,7 +347,7 @@
   (diminish-minor-mode 'magit 'auto-revert-mode)
   (diminish-minor-mode 'Git-Gutter 'git-gutter-mode)
   (diminish-minor-mode 'Which-Key 'which-key-mode)
-  (diminish-minor-mode 'ivy 'ivy-mode)
+  ;; (diminish-minor-mode 'ivy 'ivy-mode)
   (diminish-major-mode 'emacs-lisp-mode-hook "el")
   (diminish-major-mode 'python-mode-hook "Py"))
 
