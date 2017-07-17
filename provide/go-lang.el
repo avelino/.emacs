@@ -45,7 +45,11 @@
   ;; only run fast linters
   (setq flycheck-gometalinter-fast t)
   ;; use in tests files
-  (setq flycheck-gometalinter-test t))
+  (setq flycheck-gometalinter-test t)
+  ;; Only enable selected linters
+  (setq flycheck-gometalinter-enable-linters '("golint" "gotype" "gocyclo"))
+  ;; Set different deadline (default: 5s)
+  (setq flycheck-gometalinter-deadline "10s"))
 
 (use-package go-eldoc
   :config
@@ -56,5 +60,7 @@
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet")))
+
+(use-package go-autocomplete)
 
 (provide 'go-lang)

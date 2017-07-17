@@ -31,9 +31,10 @@
 
 ;; Mac
 (when (eq system-type 'darwin)
-  (setq mac-option-modifier 'alt)
-  (setq mac-command-modifier 'meta)
-  (setq mac-right-option-modifier 'super)
+  ;; (setq mac-option-modifier 'alt)
+  ;; (setq mac-command-modifier 'meta)
+  ;; (setq mac-right-option-modifier 'super)
+  (setq mac-option-modifier 'super)
   ;; sets fn-delete to be right-delete
   (global-set-key [kp-delete] 'delete-char)
   (setq-default default-input-method "MacOSX")

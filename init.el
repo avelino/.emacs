@@ -30,3 +30,4 @@
 (require 'haskell-lang)
 (require 'python-lang)
 (require 'web-lang)
+(require 'dut-mode)
