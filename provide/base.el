@@ -95,5 +95,8 @@
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
+;; auto-complete
+(ac-config-default)
+
 (provide 'base)
 ;;; core ends here
