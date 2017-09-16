@@ -1,10 +1,10 @@
 (require 'cl)
 (require 'thingatpt)
 (require 'imenu)
-(require 'counsel)
 (require 'magit-git)
 (require 'magit-process)
-;(require 'persp-mode)
+(use-package counsel)
+(use-package swiper)
 
 ;; Delete words
 (defun delete-word (arg)
