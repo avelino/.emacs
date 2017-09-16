@@ -14,3 +14,5 @@ recentf
 private/
 vendor/
 ido.last
+*.elc
+snippets/
