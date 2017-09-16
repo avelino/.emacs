@@ -16,6 +16,8 @@
 
 ;; Core settings
 ;; UTF-8 please
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 (set-charset-priority 'unicode)
 (setq locale-coding-system   'utf-8)   ; pretty
 (set-terminal-coding-system  'utf-8)   ; pretty
@@ -81,7 +83,9 @@
 (show-paren-mode 1)
 (desktop-save-mode 0)
 
-(set-default-font "Hack 24")
+(set-default-font "Fira Code 24")
+(when (window-system)
+  (set-default-font "Fira Code"))
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
