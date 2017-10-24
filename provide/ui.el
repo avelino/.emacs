@@ -17,6 +17,12 @@
 (use-package monokai-theme)
 ;; (use-package github-modern-theme)
 
+(use-package color-identifiers-mode
+  :init
+  ;; (add-hook 'emacs-lisp-mode-hook #'color-identifiers-mode)
+  (add-hook 'after-init-hook 'global-color-identifiers-mode)
+  :diminish color-identifiers-mode)
+
 (use-package git-gutter)
 (use-package git-gutter-fringe+)
 (use-package git-gutter+

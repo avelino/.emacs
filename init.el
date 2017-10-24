@@ -30,4 +30,5 @@
 (require 'haskell-lang)
 (require 'python-lang)
 (require 'web-lang)
+(require 'lisp-lang)
 (require 'dut-mode)
