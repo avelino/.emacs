@@ -40,7 +40,8 @@
   ;; Add GOPATH to shell
   (exec-path-from-shell-copy-env "GOPATH")
   (exec-path-from-shell-copy-env "PYTHONPATH")
-  (exec-path-from-shell-initialize))
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 (use-package flycheck
   :config
@@ -81,6 +82,14 @@
 	imenu-list-auto-resize nil)
   :bind
   ("C-c m l" . imenu-list-minor-mode))
+
+(use-package gist)
+
+(use-package git-commit)
+
+(use-package gitconfig-mode)
+
+(use-package gitignore-mode)
 
 (use-package magit
   :bind
@@ -141,7 +150,8 @@
   (setq linum-format " %3d ")
   (global-linum-mode nil))
 
-(use-package markdown-mode)
+(use-package markdown-mode
+  :defer t)
 
 (use-package neotree
   :config
@@ -210,5 +220,9 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
+
+(use-package server
+  :init
+  (add-hook 'after-init-hook #'server-start t))
 
 (provide 'extensions)
