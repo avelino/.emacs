@@ -16,3 +16,4 @@ vendor/
 ido.last
 *.elc
 snippets/
+*.data
