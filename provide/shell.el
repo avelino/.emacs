@@ -101,7 +101,7 @@ comint-replace-by-expanded-history-before-point."
 
 ;; not sure why, but comint needs to be reloaded from the source (*not*
 ;; compiled) elisp to make the above advise stick.
-(load "comint.el.gz")
+;; (load "comint.el.gz")
 
 ;; for other code, e.g. emacsclient in TRAMP ssh shells and automatically
 ;; closing completions buffers, see the links above.
