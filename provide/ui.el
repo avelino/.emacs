@@ -1,5 +1,3 @@
-(require 'git-gutter-fringe+)
-
 ;; `window-divider-mode' gives us finer control over the border between windows.
 ;; The native border "consumes" a pixel of the fringe on righter-most splits (in
 ;; Yamamoto's emacs-mac at least), window-divider does not. You can also control
@@ -27,6 +25,7 @@
 (use-package git-gutter-fringe+)
 (use-package git-gutter+
   :config
+  (require 'git-gutter-fringe+)
   (set-face-attribute 'fringe nil :background nil)
   (global-git-gutter-mode +1)
   (define-fringe-bitmap 'git-gutter-fr:added
@@ -54,18 +53,17 @@
       org-fontify-done-headline t
       org-fontify-quote-and-verse-blocks t)
 
-(defvar mode-line-height 30)
-
-(eval-when-compile (require 'powerline))
-(defvar mode-line-bar          (pl/percent-xpm mode-line-height 100 0 100 0 3 "#00B3EF" nil))
-(defvar mode-line-eldoc-bar    (pl/percent-xpm mode-line-height 100 0 100 0 3 "#B3EF00" nil))
-(defvar mode-line-inactive-bar (pl/percent-xpm mode-line-height 100 0 100 0 3 nil nil))
-
-(defface mode-line-is-modified nil "Face for mode-line modified symbol")
-(defface mode-line-buffer-path nil "Face for mode-line buffer file path")
-(defface mode-line-highlight nil "")
-(defface mode-line-2 nil "")
-
-(defvar mode-line-selected-window nil)
+(use-package powerline
+  :config
+  (eval-when-compile (require 'powerline))
+  (defvar mode-line-height 30)
+  (defvar mode-line-bar          (pl/percent-xpm mode-line-height 100 0 100 0 3 "#00B3EF" nil))
+  (defvar mode-line-eldoc-bar    (pl/percent-xpm mode-line-height 100 0 100 0 3 "#B3EF00" nil))
+  (defvar mode-line-inactive-bar (pl/percent-xpm mode-line-height 100 0 100 0 3 nil nil))
+  (defface mode-line-is-modified nil "Face for mode-line modified symbol")
+  (defface mode-line-buffer-path nil "Face for mode-line buffer file path")
+  (defface mode-line-highlight nil "")
+  (defface mode-line-2 nil "")
+  (defvar mode-line-selected-window nil))
 
 (provide 'ui)
