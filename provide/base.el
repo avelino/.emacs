@@ -67,7 +67,11 @@
  use-package-always-ensure          t
  vc-follow-symlinks                 t
  auto-revert-check-vc-info          nil
- frame-resize-pixelwise             t)
+ frame-resize-pixelwise             t
+ ;; mode line settings
+ line-number-mode                   t
+ column-number-mode                 t
+ size-indication-mode               t)
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
