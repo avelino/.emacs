@@ -30,9 +30,9 @@
 (define-key ctl-x-r-map "b" 'bookmark-jump-or-find-file)
 
 ;; Mac
-(when (eq system-type 'darwin)
+;; (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
-  ;; (setq mac-right-option-modifier 'super)
+  (setq mac-right-option-modifier 'super)
   ;; sets fn-delete to be right-delete
   (global-set-key [kp-delete] 'delete-char)
   (setq-default default-input-method "MacOSX")
@@ -43,6 +43,6 @@
   (dolist (multiple '("" "double-" "triple-"))
     (dolist (direction '("right" "left"))
       (global-set-key (read-kbd-macro (concat "<" multiple "wheel-" direction ">")) 'ignore)))
-  )
+;;  )
 
 (provide 'keys)
