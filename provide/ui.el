@@ -12,8 +12,9 @@
   :config
   (insert (all-the-icons-icon-for-file "*.*")))
 
-(use-package monokai-theme)
-;; (use-package github-modern-theme)
+;; (use-package monokai-theme)
+(use-package color-theme-sanityinc-tomorrow)
+;; (use-package flatui-theme)
 
 (use-package color-identifiers-mode
   :init
