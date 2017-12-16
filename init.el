@@ -32,3 +32,4 @@
 (require 'web-lang)
 (require 'lisp-lang)
 (require 'dut-mode)
+(require 'rum-mode)
