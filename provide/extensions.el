@@ -153,6 +153,12 @@
 (use-package markdown-mode
   :defer t)
 
+(use-package markdownfmt
+  :config
+  (add-hook 'markdown-mode-hook #'markdownfmt-enable-on-save)
+  :bind
+  ("C-c C-f" . markdownfmt-format-buffer))
+
 (use-package neotree
   :config
   (setq neo-theme 'arrow
@@ -166,7 +172,6 @@
 (use-package page-break-lines)
 
 (use-package projectile
-  :disabled
   :config
   (setq projectile-enable-caching t
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
