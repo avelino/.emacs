@@ -33,3 +33,5 @@
 (require 'lisp-lang)
 (require 'dut-mode)
 (require 'rum-mode)
+; (require 'jvm-lang)
+(require 'nim-lang)
