@@ -18,10 +18,6 @@
 ;; Language.
 
 ;;; Code:
-
-(eval-when-compile
-  (require 'cl-lib))
-
 ;; all rum keywords
 (defconst rum-keywords
   (regexp-opt
@@ -67,12 +63,12 @@
      (1 font-lock-keyword-face)
      (2 font-lock-function-name-face))))
 
+;;;###autoload
 (define-derived-mode rum-mode lisp-mode "rum"
   "Major mode for editing rum script"
   (set (make-local-variable 'font-lock-defaults) '(rum-font-lock-keywords)))
 
-;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.rum$" . rum-mode))
+(add-to-list 'auto-mode-alist '("\\.rum\\'" . rum-mode))
 
 (provide 'rum-mode)
 ;;; rum-mode.el ends here
