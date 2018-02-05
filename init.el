@@ -32,7 +32,7 @@
 (require 'web-lang)
 (require 'lisp-lang)
 (require 'dut-mode)
-(require 'rum-mode)
+(require 'rum-lang)
 ; (require 'jvm-lang)
 (require 'nim-lang)
 
