@@ -35,3 +35,5 @@
 (require 'rum-mode)
 ; (require 'jvm-lang)
 (require 'nim-lang)
+
+;;; init.el ends here

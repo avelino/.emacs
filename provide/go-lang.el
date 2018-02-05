@@ -1,8 +1,14 @@
+;;; go-lang.el --- Avelino extensions for Emacs
+
+;;; Commentary:
+;;
 ;; REQUIREMENTS:
 ;; go get -u golang.org/x/tools/cmd/...
 ;; go get -u github.com/rogpeppe/godef
 ;; go get -u github.com/nsf/gocode
 ;; go get -u github.com/kisielk/errcheck
+;;
+;;; Code:
 
 (use-package go-mode
   :config
@@ -64,3 +70,5 @@
 (use-package go-autocomplete)
 
 (provide 'go-lang)
+
+;;; go-lang.el ends here

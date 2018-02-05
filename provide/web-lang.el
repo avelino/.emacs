@@ -1,3 +1,9 @@
+;;; web-lang.el --- Avelino web langagues for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
 (use-package web-mode
   :config
   (setq web-mode-markup-indent-offset 2
@@ -34,3 +40,5 @@
               (flycheck-mode)))
 
 (provide 'web-lang)
+
+;;; web-lang.el ends here

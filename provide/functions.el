@@ -1,8 +1,15 @@
-(require 'cl)
+;;; functions.el --- Avelino functions for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
+(require 'cl-lib)
 (require 'thingatpt)
 (require 'imenu)
 (require 'magit-git)
 (require 'magit-process)
+
 (use-package counsel)
 (use-package swiper)
 
@@ -18,7 +25,6 @@ With argument, do this that many times."
 With argument, do this that many times."
   (interactive "p")
   (delete-word (- arg)))
-
 
 ;; COPY / PASTE on OSX
 (defun copy-from-osx ()
@@ -187,3 +193,5 @@ If point was already at that position, move point to beginning of line."
     (imenu prev-symbol)))
 
 (provide 'functions)
+
+;;; functions.el ends here

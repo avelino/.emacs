@@ -1,3 +1,8 @@
+;;; lisp-lang.el --- Avelino lisp-lang for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
 
 (use-package lisp-mode
   :ensure nil
@@ -11,3 +16,5 @@
               ("C-w" . paredit-kill-region)))
 
 (provide 'lisp-lang)
+
+;;; lisp-lang.el ends here

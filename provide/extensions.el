@@ -1,3 +1,9 @@
+;;; extensions.el --- Avelino extensions for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
 (eval-after-load 'grep
   '(progn
     (add-to-list 'grep-find-ignored-directories "local")
@@ -233,3 +239,5 @@
 (use-package yasnippet-snippets)
 
 (provide 'extensions)
+
+;;; extensions.el ends here

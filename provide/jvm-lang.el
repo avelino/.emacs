@@ -1,15 +1,13 @@
-; jvm languages
+;;; jvm-lang.el --- Avelino jvm languages for Emacs
 
+;;; Commentary:
+;;
+;;; Code:
+
+
+;;; code:
 (use-package clojure-mode)
 
-(use-package ensime
-  :ensure t
-  :pin melpa)
-
-(use-package sbt-mode
-  :pin melpa)
-
-(use-package scala-mode
-  :pin melpa)
-
 (provide 'jvm)
+
+;;; jvm-lang.el ends here

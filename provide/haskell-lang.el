@@ -1,3 +1,9 @@
+;;; haskell-lang.el --- Avelino haskell for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
 (use-package flycheck-haskell
   :config
   (add-hook 'haskell-mode-hook 'flycheck-mode)
@@ -20,3 +26,5 @@
 					      company-backends)))))
 
 (provide 'haskell-lang)
+
+;;; haskell-lang.el ends here

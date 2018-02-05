@@ -1,3 +1,9 @@
+;;; base.el --- Avelino base for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
 (package-initialize)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/")
@@ -103,4 +109,5 @@
 ;; (ac-config-default)
 
 (provide 'base)
-;;; core ends here
+
+;;; base.el ends here

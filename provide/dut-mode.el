@@ -136,3 +136,5 @@
   (run-hooks 'dut-mode-hook))
 
 (provide 'dut-mode)
+
+;;; dut-mode.el ends here

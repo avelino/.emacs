@@ -1,3 +1,9 @@
+;;; keys.el --- Avelino keys for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
 (setq ns-function-modifier 'control)
 ;; Set global keys not specific to a certain package
 ;(global-set-key (kbd "M-f") (lambda () (interactive) (forward-word)))
@@ -46,3 +52,5 @@
 ;;  )
 
 (provide 'keys)
+
+;;; keys.el ends here

@@ -1,3 +1,9 @@
+;;; ui.el --- Avelino UI for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
 ;; `window-divider-mode' gives us finer control over the border between windows.
 ;; The native border "consumes" a pixel of the fringe on righter-most splits (in
 ;; Yamamoto's emacs-mac at least), window-divider does not. You can also control
@@ -68,3 +74,5 @@
   (defvar mode-line-selected-window nil))
 
 (provide 'ui)
+
+;;; ui.el ends here

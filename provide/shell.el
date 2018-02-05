@@ -1,3 +1,9 @@
+;;; shell.el --- Avelino shell for Emacs
+
+;;; Commentary:
+;;
+;;; Code:
+
 ;; Term mode
 (setq explicit-shell-file-name "/bin/bash")
 (setq multi-term-program "/bin/bash")
@@ -107,3 +113,5 @@ comint-replace-by-expanded-history-before-point."
 ;; closing completions buffers, see the links above.
 
 (provide 'shell)
+
+;;; shell.el ends here

@@ -1,4 +1,11 @@
+;;; c-lang.el --- Avelino C language for Emacs
+
+;;; Commentary:
+;;
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
+;;
+;;; Code:
+
 (use-package cc-mode
   :config
   ;; Available C style:
@@ -66,3 +73,5 @@
 (add-hook 'c-mode-hook 'irony-mode)
 
 (provide 'c-lang)
+
+;;; c-lang.el ends here
