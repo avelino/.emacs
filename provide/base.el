@@ -99,15 +99,13 @@
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-to-list 'auto-mode-alist '("\\.psql$" . sql-mode))
 
 ;; full screen
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
 ;; auto-complete
-;; (ac-config-default)
+(ac-config-default)
 
 (provide 'base)
-
 ;;; base.el ends here
