@@ -39,6 +39,8 @@
               (flycheck-select-checker 'jsxhint-checker)
               (flycheck-mode)))
 
+(use-package easy-hugo)
+
 (provide 'web-lang)
 
 ;;; web-lang.el ends here
