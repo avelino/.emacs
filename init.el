@@ -35,5 +35,6 @@
 (require 'rum-lang)
 ; (require 'jvm-lang)
 (require 'nim-lang)
+(require 'sql-lang)
 
 ;;; init.el ends here
