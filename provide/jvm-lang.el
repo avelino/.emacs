@@ -6,6 +6,7 @@
 
 
 ;;; code:
+(use-package java-mode)
 (use-package clojure-mode)
 
 (provide 'jvm)
