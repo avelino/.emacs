@@ -56,10 +56,6 @@
 ;; Custom line number stuff
 (set-face-attribute 'fringe nil)
 
-(setq org-fontify-whole-heading-line t
-      org-fontify-done-headline t
-      org-fontify-quote-and-verse-blocks t)
-
 (use-package powerline
   :config
   (eval-when-compile (require 'powerline))
