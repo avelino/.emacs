@@ -158,25 +158,6 @@
   (setq linum-format " %3d ")
   (global-linum-mode nil))
 
-(use-package markdown-mode
-  :defer t)
-
-(use-package markdownfmt
-  :config
-  (add-hook 'markdown-mode-hook #'markdownfmt-enable-on-save)
-  :bind
-  ("C-c C-f" . markdownfmt-format-buffer))
-
-(use-package neotree
-  :config
-  (setq neo-theme 'arrow
-        neotree-smart-optn t
-        neo-window-fixed-size nil)
-  ;; Disable linum for neotree
-  (add-hook 'neo-after-create-hook 'disable-neotree-hook)
-  :bind
-  ("C-x C-t" . neotree-toggle))
-
 (use-package page-break-lines)
 
 (use-package projectile
@@ -188,11 +169,6 @@
   (projectile-global-mode)
   :bind
   ("C-x c a" . projectile-ag))
-
-(use-package restclient
-  :init
-  (setq restclient-log-request t
-	restclient-same-buffer-response t))
 
 (use-package smex
   :disabled
