@@ -20,6 +20,7 @@
 
 ;; (use-package monokai-theme)
 (use-package color-theme-sanityinc-tomorrow)
+;; (use-package nord-theme)
 ;; (use-package flatui-theme)
 
 (use-package color-identifiers-mode
