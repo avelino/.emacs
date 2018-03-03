@@ -4,10 +4,9 @@
 ;;
 ;;; Code:
 
-(setq ns-function-modifier 'control)
 ;; Set global keys not specific to a certain package
-;(global-set-key (kbd "M-f") (lambda () (interactive) (forward-word)))
-;(global-set-key (kbd "M-b") (lambda () (interactive) (backward-word)))
+(global-set-key (kbd "M-f") (lambda () (interactive) (forward-word)))
+(global-set-key (kbd "M-b") (lambda () (interactive) (backward-word)))
 (global-set-key (read-kbd-macro "<M-DEL>") 'backward-delete-word)
 (global-set-key (kbd "C-d") 'delete-word)
 
@@ -35,21 +34,14 @@
 (global-set-key (kbd "C-x c g") (lambda () (interactive) (call-interactively 'rgrep)))
 (define-key ctl-x-r-map "b" 'bookmark-jump-or-find-file)
 
-;; Mac
-;; (when (eq system-type 'darwin)
-  (setq mac-command-modifier 'meta)
-  (setq mac-right-option-modifier 'super)
-  ;; sets fn-delete to be right-delete
-  (global-set-key [kp-delete] 'delete-char)
-  (setq-default default-input-method "MacOSX")
-  ;; Make mouse wheel / trackpad scrolling less jerky
-  (setq mouse-wheel-scroll-amount '(1
-                                    ((shift) . 5)
-                                    ((control))))
-  (dolist (multiple '("" "double-" "triple-"))
-    (dolist (direction '("right" "left"))
-      (global-set-key (read-kbd-macro (concat "<" multiple "wheel-" direction ">")) 'ignore)))
-;;  )
+;; Apple keyboard (emacs in macOS)
+(setq mac-option-key-is-meta nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
+
+;; sets fn-delete to be right-delete
+(global-set-key [kp-delete] 'delete-char)
 
 (provide 'keys)
 
