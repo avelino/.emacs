@@ -13,6 +13,7 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "provide"))
 (add-to-list 'load-path (concat user-emacs-directory "vendor"))
+(add-to-list 'load-path (concat user-emacs-directory "local")) ;; not remote repository
 
 ;; basic packages
 (require 'base)
@@ -36,5 +37,8 @@
 ; (require 'jvm-lang)
 (require 'nim-lang)
 (require 'sql-lang)
+
+;; nothers
+(require 'writer)
 
 ;;; init.el ends here
