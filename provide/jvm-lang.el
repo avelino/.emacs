@@ -6,8 +6,11 @@
 
 
 ;;; code:
-(use-package java-mode)
+;; (use-package java-mode)
+
 (use-package clojure-mode)
+
+(use-package kotlin-mode)
 
 (provide 'jvm)
 
