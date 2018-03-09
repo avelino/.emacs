@@ -107,5 +107,14 @@
 ;; auto-complete
 (ac-config-default)
 
+;; auto package update
+(use-package auto-package-update
+  :config
+  (auto-package-update-maybe))
+
+(use-package server
+  :init
+  (add-hook 'after-init-hook #'server-start t))
+
 (provide 'base)
 ;;; base.el ends here
