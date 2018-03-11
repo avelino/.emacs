@@ -6,11 +6,14 @@
 
 (use-package markdown-mode
   :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :commands
+  (markdown-mode gfm-mode)
+  :mode
+  (("README\\.md\\'" . gfm-mode)
+   ("\\.md\\'" . markdown-mode)
+   ("\\.markdown\\'" . markdown-mode))
+  :init
+  (setq markdown-command "multimarkdown"))
 
 (use-package markdownfmt
   :config
@@ -28,10 +31,11 @@
 (add-to-list 'auto-mode-alist '("\\.papertask\\'" . taskpaper-mode))
 (add-to-list 'auto-mode-alist '("\\.todo\\'" . taskpaper-mode))
 (setq taskpaper-tag-faces
-      '(("done"    . font-lock-type-face)
-        ("today"   . font-lock-keyboard-face)
-	("flagged" . font-lock-warning-face)
-        ("due"     . font-lock-variable-face)))
+      '(("done"    . (:foreground "green" :weight bold :underline t))
+	("waiting" . (:foreground "purple" :weight bold :underline t))
+        ("today"   . (:foreground "blue" :weight bold :underline t))
+	("flagged" . (:foreground "red" :weight bold :underline t))
+        ("due"     . (:foreground "orange" :weight bold :underline t))))
 
 (provide 'writer)
 
