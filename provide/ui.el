@@ -23,6 +23,12 @@
 ;; (use-package nord-theme)
 ;; (use-package flatui-theme)
 
+(use-package powerline
+  :config
+  (powerline-center-theme))
+
+;; (use-package mode-icons)
+
 (use-package color-identifiers-mode
   :init
   ;; (add-hook 'emacs-lisp-mode-hook #'color-identifiers-mode)
@@ -59,16 +65,7 @@
 
 (use-package powerline
   :config
-  (eval-when-compile (require 'powerline))
-  (defvar mode-line-height 30)
-  (defvar mode-line-bar          (pl/percent-xpm mode-line-height 100 0 100 0 3 "#00B3EF" nil))
-  (defvar mode-line-eldoc-bar    (pl/percent-xpm mode-line-height 100 0 100 0 3 "#B3EF00" nil))
-  (defvar mode-line-inactive-bar (pl/percent-xpm mode-line-height 100 0 100 0 3 nil nil))
-  (defface mode-line-is-modified nil "Face for mode-line modified symbol")
-  (defface mode-line-buffer-path nil "Face for mode-line buffer file path")
-  (defface mode-line-highlight nil "")
-  (defface mode-line-2 nil "")
-  (defvar mode-line-selected-window nil))
+  (powerline-center-theme))
 
 (provide 'ui)
 
