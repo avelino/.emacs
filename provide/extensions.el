@@ -14,10 +14,11 @@
 (use-package ag)
 
 (use-package fiplr
-  :disabled
+  ;; :disabled
   :config
-  (setq fiplr-ignored-globs '((directories (".git" ".svn" "vendor"))
-			      (files (".*" "*.jpg" "*.png" "*.zip" "*~"))))
+  (setq fiplr-ignored-globs
+	'((directories (".git" ".svn" "vendor"))
+	  (files (".*" "*.jpg" "*.png" "*.zip" "*~"))))
   :bind
   ("C-x f" . fiplr-find-file))
 
