@@ -16,3 +16,4 @@ vendor/
 ido.last
 *.elc
 *.data
+.last-package-update-day
