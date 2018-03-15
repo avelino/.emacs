@@ -37,6 +37,10 @@
 	("flagged" . (:foreground "red" :weight bold :underline t))
         ("due"     . (:foreground "orange" :weight bold :underline t))))
 
+(use-package apib-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode)))
+
 (provide 'writer)
 
 ;;; writer.el ends here
