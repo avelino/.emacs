@@ -10,19 +10,18 @@
 ;;
 ;;; Code:
 
+(use-package go-guru)
+
 (use-package go-mode
   :config
   ; Use goimports instead of go-fmt
   (setq gofmt-command "goimports")
   (add-hook 'go-mode-hook 'company-mode)
-  (add-hook 'go-mode-hook (lambda ()
-			    (set (make-local-variable 'company-backends) '(company-go))
-			    (company-mode)))
   ;; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'go-mode-hook 'setup-go-mode-compile)
   (add-hook 'go-mode-hook #'smartparens-mode)
-  ;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+  (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
   (add-hook 'go-mode-hook (lambda ()
 			     (setq tab-width 4)
 			     (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
