@@ -6,8 +6,8 @@
 
 (package-initialize)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/")
-             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+  '("melpa" . "https://melpa.org/packages/")
+  '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -88,12 +88,12 @@
 
 ;; Env vars
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
-(setenv "SHELL" "/bin/zsh")
+(setenv "SHELL" "/bin/bash")
 
 (show-paren-mode 1)
 (desktop-save-mode 0)
 
-(set-default-font "Fira Code 24")
+(set-default-font "Fira Code 18")
 (when (window-system)
   (set-default-font "Fira Code"))
 
@@ -103,14 +103,6 @@
 ;; full screen
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
-
-;; auto-complete
-;; (ac-config-default)
-
-;; auto package update
-;;(use-package auto-package-update
-;;  :config
-;;  (auto-package-update-maybe))
 
 (use-package server
   :init
