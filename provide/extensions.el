@@ -109,10 +109,6 @@
   :config
   (remove-hook 'server-switch-hook 'magit-commit-diff))
 
-(use-package magit-popup)
-
-(use-package vdiff-magit)
-
 (use-package ido
   :config
   (ido-mode 'both)
