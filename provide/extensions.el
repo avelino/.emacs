@@ -90,8 +90,6 @@
   :bind
   ("C-c m l" . imenu-list-minor-mode))
 
-(use-package gist)
-
 (use-package git-commit)
 
 (use-package gitconfig-mode)

@@ -105,12 +105,12 @@
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
 ;; auto-complete
-(ac-config-default)
+;; (ac-config-default)
 
 ;; auto package update
-(use-package auto-package-update
-  :config
-  (auto-package-update-maybe))
+;;(use-package auto-package-update
+;;  :config
+;;  (auto-package-update-maybe))
 
 (use-package server
   :init

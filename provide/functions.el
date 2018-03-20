@@ -6,9 +6,9 @@
 
 (require 'cl-lib)
 (require 'thingatpt)
-(require 'imenu)
-(require 'magit-git)
-(require 'magit-process)
+;; (require 'imenu)
+;; (require 'magit-git)
+;; (require 'magit-process)
 
 (use-package counsel)
 (use-package swiper)
