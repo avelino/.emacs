@@ -19,7 +19,8 @@
   (insert (all-the-icons-icon-for-file "*.*")))
 
 ;; (use-package monokai-theme)
-(use-package color-theme-sanityinc-tomorrow)
+;; (use-package color-theme-sanityinc-tomorrow) ;; used to clear (white) terminal active
+(use-package rebecca-theme)
 ;; (use-package nord-theme)
 ;; (use-package flatui-theme)
 
