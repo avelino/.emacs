@@ -205,6 +205,10 @@
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
 
+(use-package toml-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-mode)))
+
 (use-package server
   :init
   (add-hook 'after-init-hook #'server-start t))
