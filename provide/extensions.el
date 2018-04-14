@@ -112,14 +112,11 @@
 	ido-use-filename-at-point 'guess
 	ido-create-new-buffer 'always
 	ido-file-extensions-order '(".org" ".txt" ".py" ".emacs" ".xml" ".el"
-				    ".ini" ".cfg" ".cnf" ".conf" ".go" ".sh")
+				    ".ini" ".cfg" ".cnf" ".conf" ".go" ".sh"
+				    ".md")
 	ido-ignore-extensions t
 	ido-ignore-files '("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./"
 			   "\\.orig$")))
-
-(use-package ibuffer
-  :bind
-  ("C-x C-b" . ibuffer))
 
 (use-package ido-grid-mode
   :ensure t
