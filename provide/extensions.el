@@ -82,14 +82,6 @@
   :config
   (global-hungry-delete-mode))
 
-(use-package imenu-list
-  :config
-  (setq imenu-list-focus-after-activation t
-	imenu-list-size 0.2
-	imenu-list-auto-resize nil)
-  :bind
-  ("C-c m l" . imenu-list-minor-mode))
-
 (use-package git-commit)
 
 (use-package gitconfig-mode)
