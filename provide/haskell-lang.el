@@ -20,10 +20,11 @@
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
   (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
   (add-hook 'haskell-mode-hook 'company-mode)
-  (add-hook 'haskell-mode-hook (lambda ()
-				 (set (make-local-variable 'company-backends)
-				      (append '((company-capf company-dabbrev-code))
-					      company-backends)))))
+  (add-hook 'haskell-mode-hook
+	    (lambda ()
+	      (set (make-local-variable 'company-backends)
+		   (append '((company-capf company-dabbrev-code))
+			   company-backends)))))
 
 (provide 'haskell-lang)
 
