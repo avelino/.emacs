@@ -149,25 +149,11 @@
   (setq projectile-enable-caching t
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
 	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
+  (add-hook 'after-init-hook #'projectile-global-mode)
   ;; (setq projectile-completion-system 'ivy)
-  (projectile-global-mode)
+  ;; (projectile-global-mode)
   :bind
   ("C-x c a" . projectile-ag))
-
-(use-package smex
-  :disabled
-  :ensure t
-  :config
-  (setq smex-save-file (expand-file-name "smex-items" temp-dir))
-  :bind
-  ("M-x" . smex)
-  ("M-X" . smex-major-mode-commands)
-  ;; if you want to be able to M-x without meta
-  ("C-x C-m" . smex)
-  ;; default Emacs M-x
-  ("C-c C-c M-x" . execute-extended-command)
-  :init
-  (smex-initialize))
 
 (use-package undo-tree
   :config
