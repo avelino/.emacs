@@ -26,7 +26,7 @@
   (setq deft-extensions '("md" "txt" "tex" "org"))
   (setq deft-directory "~/Dropbox/Notes"))
 
-(use-package 'taskpaper-mode
+(use-package taskpaper-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.papertask\\'" . taskpaper-mode))
   (add-to-list 'auto-mode-alist '("\\.todo\\'" . taskpaper-mode))
