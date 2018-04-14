@@ -168,6 +168,7 @@
   ("C-c y v" . yas-visit-snippet-file)
   :config
   (yas-global-mode 1))
+(use-package yasnippet-snippets)
 
 (use-package zoom-window
   :bind
