@@ -9,9 +9,10 @@
 ;; (use-package java-mode)
 
 (use-package clojure-mode)
+;; (cider)
 
-(use-package kotlin-mode)
+;; (use-package kotlin-mode)
 
-(provide 'jvm)
+(provide 'jvm-lang)
 
 ;;; jvm-lang.el ends here
