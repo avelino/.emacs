@@ -8,6 +8,10 @@
   :ensure t
   :commands
   (markdown-mode gfm-mode)
+  :config
+  (progn
+    (bind-key "M-n" 'open-line-below markdown-mode-map)
+    (bind-key "M-p" 'open-line-above markdown-mode-map))
   :mode
   (("README\\.md\\'" . gfm-mode)
    ("\\.md\\'" . markdown-mode)
