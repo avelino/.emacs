@@ -25,12 +25,12 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 (set-charset-priority 'unicode)
-(setq locale-coding-system   'utf-8)   ; pretty
+(setq locale-coding-system          'utf-8
+      default-process-coding-system '(utf-8-unix . utf-8-unix))   ; pretty
 (set-terminal-coding-system  'utf-8)   ; pretty
 (set-keyboard-coding-system  'utf-8)   ; pretty
 (set-selection-coding-system 'utf-8)   ; please
 (prefer-coding-system        'utf-8)   ; with sugar on top
-(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
@@ -77,7 +77,14 @@
  ;; mode line settings
  line-number-mode                   t
  column-number-mode                 t
- size-indication-mode               t)
+ size-indication-mode               t
+ ;; shell
+ explicit-shell-file-name           "/bin/bash"
+ multi-term-program                 "/bin/bash"
+ term-buffer-maximum-size           10000
+ show-trailing-whitespace           nil
+ comint-prompt-read-only            t)
+
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)

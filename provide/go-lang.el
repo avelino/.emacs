@@ -46,25 +46,26 @@
   :config
   (progn
     (flycheck-gometalinter-setup))
-  ;; skips 'vendor' directories and sets GO15VENDOREXPERIMENT=1
-  (setq flycheck-gometalinter-vendor t)
-  ;; only show errors
-  (setq flycheck-gometalinter-errors-only t)
-  ;; only run fast linters
-  (setq flycheck-gometalinter-fast t)
-  ;; use in tests files
-  (setq flycheck-gometalinter-test t)
-  ;; Only enable selected linters
-  (setq flycheck-gometalinter-enable-linters '("golint" "gotype" "gocyclo"))
-  ;; Set different deadline (default: 5s)
-  (setq flycheck-gometalinter-deadline "10s"))
+  (setq
+   ;; skips 'vendor' directories and sets GO15VENDOREXPERIMENT=1
+   flycheck-gometalinter-vendor         t
+   ;; only show errors
+   flycheck-gometalinter-errors-only    t
+   ;; only run fast linters
+   flycheck-gometalinter-fast           t
+   ;; use in tests files
+   flycheck-gometalinter-test           t
+   ;; Only enable selected linters
+   flycheck-gometalinter-enable-linters '("golint" "gotype" "gocyclo")
+   ;; Set different deadline (default: 5s)
+   flycheck-gometalinter-deadline       "10s"))
 
 (use-package go-eldoc
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (defun setup-go-mode-compile ()
-  ; Customize compile command to run go build
+  "Customize compile command to run go build"
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet")))

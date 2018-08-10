@@ -5,7 +5,6 @@
 ;;; Code:
 
 (defalias 'lf 'load-file)
-(defalias 'rg 'rgrep)
 
 (provide 'aliases)
 

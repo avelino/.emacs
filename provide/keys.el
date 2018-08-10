@@ -9,6 +9,8 @@
 (global-set-key (kbd "M-b") (lambda () (interactive) (backward-word)))
 (global-set-key (read-kbd-macro "<M-DEL>") 'backward-delete-word)
 (global-set-key (kbd "C-d") 'delete-word)
+;; sets fn-delete to be right-delete
+(global-set-key [kp-delete] 'delete-char)
 
 (global-set-key [home] 'smart-beginning-of-line)
 (global-set-key "\C-a" 'smart-beginning-of-line)
@@ -35,13 +37,10 @@
 (define-key ctl-x-r-map "b" 'bookmark-jump-or-find-file)
 
 ;; Apple keyboard (emacs in macOS)
-(setq mac-option-key-is-meta nil)
-(setq mac-command-key-is-meta t)
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
-
-;; sets fn-delete to be right-delete
-(global-set-key [kp-delete] 'delete-char)
+(setq mac-option-key-is-meta  nil
+      mac-command-key-is-meta t
+      mac-command-modifier    'meta
+      mac-option-modifier     nil)
 
 (provide 'keys)
 

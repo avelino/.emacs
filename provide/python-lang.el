@@ -1,7 +1,14 @@
-;;; package --- python configs
-;;; Commentary:
-;;; Contains my python configs
+;;; python-lang.el --- Avelino extensions for Emacs
 
+;;; Commentary:
+;;
+;; REQUIREMENTS:
+;; pip install rope
+;; pip install jedi
+;; pip install flake8
+;; pip install autopep8
+;; pip install yapf
+;;
 ;;; Code:
 
 (use-package elpy

@@ -4,13 +4,6 @@
 ;;
 ;;; Code:
 
-(eval-after-load 'grep
-  '(progn
-    (add-to-list 'grep-find-ignored-directories "local")
-    (add-to-list 'grep-find-ignored-directories "build")
-    (add-to-list 'grep-find-ignored-directories "media")))
-(add-hook 'grep-mode-hook (lambda() (toggle-truncate-lines 1)))
-
 (use-package ag)
 
 (use-package fiplr
@@ -23,6 +16,7 @@
   ("C-x f" . fiplr-find-file))
 
 (use-package anzu
+  ;; search displays current match and total matches
   :config
   (global-anzu-mode +1)
   (global-set-key [remap query-replace] 'anzu-query-replace)
@@ -41,14 +35,6 @@
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (setq-default ediff-highlight-all-diffs 'nil)
   (setq ediff-diff-options "-w"))
-
-(use-package exec-path-from-shell
-  :config
-  ;; Add GOPATH to shell
-  (exec-path-from-shell-copy-env "GOPATH")
-  (exec-path-from-shell-copy-env "PYTHONPATH")
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
 
 (use-package flycheck
   :config
@@ -78,6 +64,7 @@
   (global-hl-line-mode))
 
 (use-package hungry-delete
+  ;; deleting whitespace character will delete all whitespace
   :config
   (global-hungry-delete-mode))
 
@@ -151,13 +138,6 @@
   ;; (projectile-global-mode)
   :bind
   ("C-x c a" . projectile-ag))
-
-(use-package undo-tree
-  :config
-  (global-undo-tree-mode 1)
-  ;; Remember undo history
-  (setq undo-tree-auto-save-history        nil
-	undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/")))))
 
 (use-package yasnippet
   :bind

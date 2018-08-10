@@ -16,7 +16,8 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
@@ -35,9 +36,9 @@
 
 (defun jsx-flycheck ()
   (when (equal web-mode-content-type "jsx")
-              ;; enable flycheck
-              (flycheck-select-checker 'jsxhint-checker)
-              (flycheck-mode)))
+    ;; enable flycheck
+    (flycheck-select-checker 'jsxhint-checker)
+    (flycheck-mode)))
 
 (use-package easy-hugo)
 

@@ -19,8 +19,8 @@
   ;; "python": What Python developers use for extension modules
   ;; "java": The default style for java-mode (see below)
   ;; "user": When you want to define your own style
-  (setq c-default-style "linux") ;; set style to "linux"
-  (setq gdb-many-windows t ;; use gdb-many-windows by default
+  (setq c-default-style "linux" ;; set style to "linux"
+	gdb-many-windows t ;; use gdb-many-windows by default
 	gdb-show-main t))
 
 (use-package semantic
@@ -28,7 +28,6 @@
   (setq semanticdb-default-save-directory (expand-file-name "semanticdb/" temp-dir))
   (add-hook 'c-mode-common-hook (lambda ()
 	    (semantic-mode 1)
-	    ;(global-semanticdb-minor-mode 1)
 	    (global-semantic-idle-scheduler-mode 1)
 	    (global-semantic-stickyfunc-mode 1))))
 
