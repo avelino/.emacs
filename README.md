@@ -1,10 +1,8 @@
-.emacs.d
-========
+# .emacs.d
 
-My emacs configurations.
+**Avelino** emacs *personal* configurations.
 
-Installation
-------------
+## Installation
 
 In theory you can just download the .emacs.d directory to your home directory and start Emacs, though if you want to get changes from GitHub, you'll need to do things a bit differently.
 
@@ -12,4 +10,8 @@ In theory you can just download the .emacs.d directory to your home directory an
 # hope you know what you're doing
 rm -rf ~/.emacs.d ~/.emacs
 git clone git://github.com/avelino/.emacs.git ~/.emacs.d
+cd ~/.emacs.d
+make install
 ```
+
+*Then just Emacs open, command:* `emacs`
