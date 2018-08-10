@@ -12,8 +12,7 @@
               ("M-." . find-symbol-at-point)
               ("C-c e" . eval-last-sexp-other-buffer)
               ("C-M-w" . backward-kill-sexp)
-              ("C-M-d" . kill-sexp)
-              ("C-w" . paredit-kill-region)))
+              ("C-M-d" . kill-sexp))
 
 (provide 'lisp-lang)
 

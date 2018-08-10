@@ -6,6 +6,18 @@
 
 (use-package ag)
 
+(use-package smex
+  :ensure t
+  :bind ("M-x" . smex))
+
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x c") 'mc/edit-lines)
+  (global-set-key (kbd "C-x x") 'mc/mark-all-like-this)
+  (global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "M-n") 'mc/mark-next-like-this))
+
 (use-package fiplr
   ;; :disabled
   :config
@@ -87,12 +99,16 @@
   (remove-hook 'server-switch-hook 'magit-commit-diff))
 
 (use-package ido
+  :ensure t
   :config
   (ido-mode 'both)
   (ido-everywhere t)
   (setq ido-auto-merge-delay-time 4
+	ido-auto-merge-work-directories-length nil
+	ido-default-file-method 'selected-window
 	ido-enable-flex-matching t
 	ido-max-window-height 1
+	ido-max-prospects 10
 	ido-use-virtual-buffers t
 	ido-use-filename-at-point 'guess
 	ido-create-new-buffer 'always
@@ -109,8 +125,14 @@
   (ido-grid-mode 1)
   :config
   (setq ido-grid-mode-max-rows 4
-	ido-grid-mode-min-rows 4)
-  (setq ido-max-window-height (+ ido-grid-mode-max-rows 1)))
+	ido-grid-mode-min-rows 4
+        ido-max-window-height (+ ido-grid-mode-max-rows 1)))
+
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-everywhere 1)
+  (ido-ubiquitous-mode 1))
 
 (use-package flx-ido
   :ensure t
@@ -129,15 +151,16 @@
 (use-package page-break-lines)
 
 (use-package projectile
+  :ensure t
   :config
   (setq projectile-enable-caching t
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
 	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
+  (add-hook 'prog-mode-hook 'projectile-mode)
   (add-hook 'after-init-hook #'projectile-global-mode)
-  ;; (setq projectile-completion-system 'ivy)
-  ;; (projectile-global-mode)
+  (projectile-global-mode)
   :bind
-  ("C-x c a" . projectile-ag))
+  ("C-x p a" . projectile-ag))
 
 (use-package yasnippet
   :bind
@@ -171,7 +194,7 @@
   :config
   (setq auto-package-update-delete-old-versions t
 	auto-package-update-interval 4)
-     (auto-package-update-maybe))
+  (auto-package-update-maybe))
 
 (provide 'extensions)
 
