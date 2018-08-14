@@ -13,7 +13,7 @@
 (global-set-key [kp-delete] 'delete-char)
 
 (global-set-key [home] 'smart-beginning-of-line)
-(global-set-key "\C-a" 'smart-beginning-of-line)
+(global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
 (global-set-key (kbd "C-x 2") 'split-window-below-and-switch)
 (global-set-key (kbd "C-x 3") 'split-window-right-and-switch)
@@ -33,7 +33,7 @@
 (global-set-key (kbd "C-'") 'iterm-focus)
 
 ;; rgrep
-(global-set-key (kbd "C-x c g") (lambda () (interactive) (call-interactively 'rgrep)))
+(global-set-key (kbd "C-x C-g") (lambda () (interactive) (call-interactively 'rgrep)))
 (define-key ctl-x-r-map "b" 'bookmark-jump-or-find-file)
 
 ;; Apple keyboard (emacs in macOS)
