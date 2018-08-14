@@ -12,7 +12,16 @@
               ("M-." . find-symbol-at-point)
               ("C-c e" . eval-last-sexp-other-buffer)
               ("C-M-w" . backward-kill-sexp)
-              ("C-M-d" . kill-sexp))
+              ("C-M-d" . kill-sexp)))
+
+(use-package racket-mode
+  :config
+  (add-hook 'racket-mode-hook
+	    (lambda ()
+	      (define-key racket-mode-map (kbd "C-c r") 'racket-run)))
+  (add-hook 'racket-mode-hook      #'racket-unicode-input-method-enable)
+  (add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
+  (setq tab-always-indent 'complete))
 
 (provide 'lisp-lang)
 
