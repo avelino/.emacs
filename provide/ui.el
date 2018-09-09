@@ -4,10 +4,10 @@
 ;;
 ;;; Code:
 
-(use-package monokai-theme)
-;; (use-package color-theme-sanityinc-tomorrow) ;; used to clear (white) terminal active
-;; (use-package rebecca-theme)
-;; (use-package material-theme)
+;; (use-package monokai-theme)
+(use-package spacemacs-theme
+  :defer t
+  :init (load-theme 'spacemacs-light t))
 
 (use-package color-identifiers-mode
   :init
