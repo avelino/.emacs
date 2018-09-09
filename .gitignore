@@ -18,3 +18,4 @@ ido.last
 *.data
 .last-package-update-day
 .cask
+smex-items
