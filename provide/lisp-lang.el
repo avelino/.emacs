@@ -4,6 +4,7 @@
 ;;
 ;;; Code:
 
+;; Lisp
 (use-package lisp-mode
   :ensure nil
   :bind (:map emacs-lisp-mode-map
@@ -14,6 +15,7 @@
               ("C-M-w" . backward-kill-sexp)
               ("C-M-d" . kill-sexp)))
 
+;; Racket
 (use-package racket-mode
   :config
   (add-hook 'racket-mode-hook
@@ -22,6 +24,9 @@
   (add-hook 'racket-mode-hook      #'racket-unicode-input-method-enable)
   (add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
   (setq tab-always-indent 'complete))
+
+;; Scheme
+(use-package geiser)
 
 (provide 'lisp-lang)
 
