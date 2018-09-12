@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# key: cond
+# name:  cond
+# expand-env: ((yas-indent-line 'fixed))
+# contributor: Greg Hendershott <greghendershot@gmail.com>
+# --
+(cond [${1:#t} ${2}]
+      [else ${3}])

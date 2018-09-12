@@ -1,0 +1,35 @@
+# -*- mode: snippet -*-
+# key: lang
+# name: scribble: #lang scribble/manual file template
+# condition: (= (1+ (length "lang")) (point))
+# expand-env: ((yas-indent-line 'fixed))
+# contributor: Greg Hendershott <greghendershot@gmail.com>
+# --
+#lang scribble/manual
+
+@(require racket/sandbox
+          scribble/eval
+          (for-label ${module-path}))
+
+@(define EVAL
+   (parameterize ([sandbox-output 'string]
+                  [sandbox-error-output 'string])
+     (make-evaluator '${evaluator-name})))
+
+@title{${title}}
+
+@[table-of-contents]
+
+@;--------------------------------------------------------------------
+
+@section{$0}
+
+@subsection{}
+
+@;--------------------------------------------------------------------
+
+@section{}
+
+@subsection{}
+
+@;--------------------------------------------------------------------

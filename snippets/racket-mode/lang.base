@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# key: lang
+# name: base: #lang racket/base file template
+# condition: (= (1+ (length "lang")) (point))
+# expand-env: ((yas-indent-line 'fixed))
+# contributor: Greg Hendershott <greghendershot@gmail.com>
+# --
+#lang ${1:racket/base}
+
+(require (for-syntax racket/base
+                     syntax/parse))
+
+(provide)
+
+(module+ test
+  (require rackunit))
+
+$0

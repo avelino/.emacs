@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# key: lang
+# name: racket: #lang racket file template
+# condition: (= (1+ (length "lang")) (point))
+# expand-env: ((yas-indent-line 'fixed))
+# contributor: Greg Hendershott <greghendershot@gmail.com>
+# --
+#lang ${1:racket}
+
+(require)
+
+(provide)
+
+(module+ test
+  (require rackunit))
+
+$0

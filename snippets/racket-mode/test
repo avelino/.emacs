@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# key: test
+# name:  Test submodule
+# condition: (= (length "test") (current-column))
+# expand-env: ((yas-indent-line 'fixed))
+# contributor: Greg Hendershott <greghendershot@gmail.com>
+# --
+(module+ test
+  $0)
