@@ -15,6 +15,10 @@
               ("C-M-w" . backward-kill-sexp)
               ("C-M-d" . kill-sexp)))
 
+(use-package flycheck-elsa
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'flycheck-elsa-setup))
+
 ;; Racket
 (use-package racket-mode
   :config
