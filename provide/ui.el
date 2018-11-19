@@ -5,9 +5,10 @@
 ;;; Code:
 
 ;; (use-package monokai-theme)
-(use-package spacemacs-theme
-  :defer t
-  :init (load-theme 'spacemacs-light t))
+(use-package dracula-theme)
+;; (use-package spacemacs-theme
+;;   :defer t
+;;   :init (load-theme 'spacemacs-light t))
 
 (use-package color-identifiers-mode
   :init
