@@ -106,10 +106,6 @@
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
-(use-package server
-  :init
-  (add-hook 'after-init-hook #'server-start t))
-
 ;; Highlight BUG FIXME TODO NOTE keywords in the source code.
 (add-hook 'find-file-hook
 	  (lambda()

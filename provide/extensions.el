@@ -80,7 +80,9 @@
   :config
   (global-hungry-delete-mode))
 
-(use-package git-commit)
+(use-package git-commit
+  :init
+  (global-git-commit-mode t))
 
 (use-package gitconfig-mode)
 
