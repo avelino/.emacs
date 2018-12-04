@@ -10,7 +10,12 @@
 ;;
 ;;; Code:
 
-(use-package go-guru)
+;; Snag the user's PATH and GOPATH
+(setenv "GOPATH" "/Users/avelino")
+
+(use-package go-guru
+  :init
+  (go-guru-hl-identifier-mode))
 
 (use-package go-mode
   :config

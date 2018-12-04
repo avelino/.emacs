@@ -1,4 +1,4 @@
-;;; package --- Main init file
+; package --- Main init file
 ;;; Commentary:
 ;;; avelino's GNU Emacs configuration
 ;;; This is my init file

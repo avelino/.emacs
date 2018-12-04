@@ -16,6 +16,7 @@
               ("C-M-d" . kill-sexp)))
 
 (use-package flycheck-elsa
+  :disabled
   :config
   (add-hook 'emacs-lisp-mode-hook #'flycheck-elsa-setup))
 

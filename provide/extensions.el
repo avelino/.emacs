@@ -154,6 +154,7 @@
   :ensure t
   :config
   (setq projectile-enable-caching t
+	projectile-project-search-path '("~/src/")
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
 	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
   (add-hook 'prog-mode-hook 'projectile-mode)
@@ -161,7 +162,8 @@
   (add-hook 'after-init-hook #'projectile-global-mode)
   (projectile-global-mode)
   :bind
-  ("C-x p a" . projectile-ag))
+  ("C-x p a" . projectile-ag)
+  ("C-x p p" . projectile-switch-project))
 
 (use-package yasnippet
   :bind
