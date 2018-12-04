@@ -82,7 +82,8 @@
  multi-term-program                  "/bin/bash"
  term-buffer-maximum-size            10000
  show-trailing-whitespace            nil
- comint-prompt-read-only             t)
+ comint-prompt-read-only             t
+ default-frame-alist                 '((font . "Hack Nerd Font-18")))
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
@@ -97,10 +98,6 @@
 
 (show-paren-mode 1)
 (desktop-save-mode 0)
-
-(set-default-font "Fira Code 18")
-(when (window-system)
-  (set-default-font "Fira Code"))
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
