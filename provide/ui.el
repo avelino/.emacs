@@ -19,16 +19,6 @@
   (add-hook 'after-init-hook 'global-color-identifiers-mode)
   :diminish color-identifiers-mode)
 
-(use-package diff-hl
-  :ensure t
-  :hook
-  ;; Highlight changed files in the fringe of dired
-  ((dired-mode . diff-hl-dired-mode)
-   (magit-post-refresh . diff-hl-magit-post-refresh))
-  :diminish diff-hl-mode
-  :init (global-diff-hl-mode)
-  :config (add-hook 'vc-checkin-hook 'diff-hl-update))
-
 ;; smart-mode-line
 (use-package smart-mode-line
   :ensure t
