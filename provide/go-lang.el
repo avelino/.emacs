@@ -11,7 +11,7 @@
 ;;; Code:
 
 ;; Snag the user's PATH and GOPATH
-(setenv "GOPATH" "/Users/avelino")
+;; (setenv "GOPATH" "/Users/avelino")
 
 (use-package go-mode
   :config
