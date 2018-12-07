@@ -40,7 +40,10 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :mode "Dockerfile\\'")
+
+(use-package docker-compose-mode)
 
 (use-package ediff
   :config
