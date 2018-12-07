@@ -110,7 +110,7 @@
         magit-process-popup-time 3
 	magit-diff-refine-hunk t)
   (with-eval-after-load 'fullframe
-    (fullframe magit-status magit-mode-quit-window)
+    (fullframe magit-status magit-mode-quit-window))
   (remove-hook 'server-switch-hook 'magit-commit-diff))
 
 (use-package git-gutter-fringe
