@@ -6,7 +6,9 @@
 
 ;; (use-package monokai-theme)
 ;; (use-package dracula-theme)
-(use-package atom-one-dark-theme)
+(use-package doom-themes
+  :defer t
+  :init (load-theme 'doom-molokai t))
 ;; (load-theme 'ayu-theme t) ;; local [WIP] ref: https://github.com/dempfi/ayu
 ;; (use-package spacemacs-theme
 ;;   :defer t
@@ -27,17 +29,12 @@
   :init (global-diff-hl-mode)
   :config (add-hook 'vc-checkin-hook 'diff-hl-update))
 
-;; An atom-one-dark theme for smart-mode-line
-(use-package smart-mode-line-atom-one-dark-theme
-  :ensure t)
 ;; smart-mode-line
 (use-package smart-mode-line
   :ensure t
   :requires all-the-icons
   :config
-  (setq
-   sml/no-confirm-load-theme t
-   sml/theme 'atom-one-dark)
+  (setq sml/no-confirm-load-theme t)
   (sml/setup))
 
 ;; All the icons
