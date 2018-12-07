@@ -40,6 +40,8 @@
  confirm-nonexistent-file-or-buffer  t
  save-interprogram-paste-before-kill t
  mouse-yank-at-point                 t
+ inhibit-splash-screen               t
+ inhibit-startup-message             t
  require-final-newline               nil
  visible-bell                        nil
  ring-bell-function                  'ignore
