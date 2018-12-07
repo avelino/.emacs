@@ -27,12 +27,19 @@
   :bind
   ("C-x f" . fiplr-find-file))
 
+
+;; search displays current match and total matches
 (use-package anzu
-  ;; search displays current match and total matches
-  :config
+  :bind
+  (([remap query-replace] . anzu-query-replace)
+   ([remap query-replace-regexp] . anzu-query-replace-regexp)
+   :map isearch-mode-map
+   ([remap isearch-query-replace] . anzu-isearch-query-replace)
+   ([remap isearch-query-replace-regexp] . anzu-isearch-query-replace-regexp))
+  :init
   (global-anzu-mode +1)
-  (global-set-key [remap query-replace] 'anzu-query-replace)
-  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
+  :config
+  (setq anzu-cons-mode-line-p nil))
 
 (use-package company
   :bind
@@ -52,20 +59,17 @@
   (setq ediff-diff-options "-w"))
 
 (use-package flycheck
+  :commands global-flycheck-mode
+  :hook (after-init . global-flycheck-mode)
   :config
-  (setq flycheck-indication-mode 'right-fringe
-      ;; Removed checks on idle/change for snappiness
-      flycheck-check-syntax-automatically '(save mode-enabled)
-      flycheck-highlighting-mode 'symbols
-      flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc make)
-      ;; `flycheck-pos-tip'
-      flycheck-pos-tip-timeout 10
-      flycheck-display-errors-delay 0.5)
-  (when (eq window-system 'mac)
-    (require 'flycheck-pos-tip)
+  (use-package flycheck-pos-tip
+    :config
+    (setq flycheck-pos-tip-timeout 7
+	  flycheck-display-errors-delay 0.5)
     (flycheck-pos-tip-mode +1))
-  ;; Enable flycheck
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+    [0 0 0 0 0 256 384 448 480 496 480 448 384 256 0 0 0 0 0]
+    ))
 
 (use-package hl-line
   :config
@@ -183,7 +187,8 @@
 (use-package projectile
   :ensure t
   :config
-  (setq projectile-enable-caching t
+  (setq projectile-switch-project-action 'projectile-dired
+	projectile-enable-caching t
 	projectile-project-search-path '("~/src/")
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
 	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
@@ -221,6 +226,25 @@
 (use-package server
   :init
   (add-hook 'after-init-hook #'server-start t))
+
+(use-package exec-path-from-shell
+  :if (memq system-type '(gnu gnu/linux darwin))
+  :init
+  (customize-set-variable 'exec-path-from-shell-arguments nil)
+  :config
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH")
+  (exec-path-from-shell-copy-env "RUST_SRC_PATH")
+  (exec-path-from-shell-copy-env "WORKON_HOME"))
+
+(use-package multiple-cursors
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+	 ("C-c C-<" . mc/mark-all-like-this)))
+
+(use-package editorconfig
+  :init
+  (editorconfig-mode 1))
 
 (use-package auto-package-update
   :ensure t
