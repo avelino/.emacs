@@ -84,9 +84,13 @@
   :init
   (global-git-commit-mode t))
 
-(use-package gitconfig-mode)
+(use-package gitconfig-mode
+  :mode (("\\.gitconfig\\'" . gitconfig-mode)
+	 ("\\.git/config\\'" . gitconfig-mode)
+	 ("\\.gitmodules\\'" . gitconfig-mode)))
 
-(use-package gitignore-mode)
+(use-package gitignore-mode
+  :mode ("\\.gitignore\\'" . gitignore-mode))
 
 (use-package magit
   :bind
@@ -98,7 +102,28 @@
   ("C-x g e" . magit-ediff-resolve)
   ("C-x g r" . magit-rebase-interactive)
   :config
+  (setq magit-completing-read-function 'magit-builtin-completing-read
+        magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")
+        magit-process-popup-time 3
+	magit-diff-refine-hunk t)
+  (with-eval-after-load 'fullframe
+    (fullframe magit-status magit-mode-quit-window)
   (remove-hook 'server-switch-hook 'magit-commit-diff))
+
+(use-package git-gutter-fringe
+  :if window-system
+  :config
+  (use-package fringe-helper)
+  (setq git-gutter-fr:side 'right-fringe)
+  (add-hook 'prog-mode-hook 'git-gutter-mode)
+  (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
+  (setq-default fringes-outside-margins t)
+  (fringe-helper-define 'git-gutter-fr:added '(center repeated)
+    "XXX.....")
+  (fringe-helper-define 'git-gutter-fr:modified '(center repeated)
+    "XXX.....")
+  (fringe-helper-define 'git-gutter-fr:deleted  '(center repeated)
+    "XXX....."))
 
 (use-package ido
   :ensure t
