@@ -43,7 +43,8 @@
 
 (use-package apib-mode
   :config
-  (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode)))
+  (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode))
+  (add-hook 'apib-mode-hook (lambda () (setq tab-width 4))))
 
 (provide 'writer)
 

@@ -15,9 +15,9 @@
 ;;   :init (load-theme 'spacemacs-light t))
 
 (use-package color-identifiers-mode
+  :diminish (color-identifiers-mode . "🎨 ")
   :init
-  (add-hook 'after-init-hook 'global-color-identifiers-mode)
-  :diminish color-identifiers-mode)
+  (add-hook 'after-init-hook 'global-color-identifiers-mode))
 
 ;; smart-mode-line
 (use-package smart-mode-line

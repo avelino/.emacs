@@ -59,7 +59,9 @@
   (setq ediff-diff-options "-w"))
 
 (use-package flycheck
-  :commands global-flycheck-mode
+  :diminish "🦋 "
+  :init
+  (global-flycheck-mode)
   :hook (after-init . global-flycheck-mode)
   :config
   (use-package flycheck-pos-tip
@@ -68,8 +70,7 @@
 	  flycheck-display-errors-delay 0.5)
     (flycheck-pos-tip-mode +1))
   (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
-    [0 0 0 0 0 256 384 448 480 496 480 448 384 256 0 0 0 0 0]
-    ))
+    [0 0 0 0 0 256 384 448 480 496 480 448 384 256 0 0 0 0 0]))
 
 (use-package hl-line
   :config
