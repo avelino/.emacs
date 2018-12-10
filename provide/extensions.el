@@ -246,6 +246,9 @@
   :init
   (editorconfig-mode 1))
 
+(use-package smart-comment
+  :bind ("M-;" . smart-comment))
+
 (use-package auto-package-update
   :ensure t
   :config
