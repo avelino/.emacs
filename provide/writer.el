@@ -19,18 +19,24 @@
   :init
   (setq markdown-command "multimarkdown"))
 
+(use-package markdown-mode+
+  :ensure t)
+
 (use-package markdownfmt
+  :ensure t
   :config
   (add-hook 'markdown-mode-hook #'markdownfmt-enable-on-save)
   :bind
   ("C-c C-f" . markdownfmt-format-buffer))
 
 (use-package deft
+  :ensure t
   :config
   (setq deft-extensions '("md" "txt" "tex" "org"))
-  (setq deft-directory "~/Dropbox/Notes"))
+  (setq deft-directory "~/gdrive/My\ Drive/Notes"))
 
 (use-package taskpaper-mode
+  :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.papertask\\'" . taskpaper-mode))
   (add-to-list 'auto-mode-alist '("\\.todo\\'" . taskpaper-mode))
@@ -42,6 +48,7 @@
 	  ("due"     . (:foreground "orange" :weight bold :underline t)))))
 
 (use-package apib-mode
+  :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode))
   (add-hook 'apib-mode-hook (lambda () (setq tab-width 4))))
