@@ -4,6 +4,7 @@ ac-comphist.dat
 auto-save-list/
 elpa/
 eshell/
+elpy/
 init-elpy-experiment
 init_bash.sh
 places
