@@ -31,7 +31,8 @@
     '(progn
        (add-to-list 'ac-modes 'cider-mode)
        (add-to-list 'ac-modes 'cider-repl-mode))))
-(use-package flycheck-clojure)
+(use-package flycheck-clojure
+  :ensure t)
 
 ;; (use-package kotlin-mode)
 
