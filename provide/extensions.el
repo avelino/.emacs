@@ -10,14 +10,6 @@
   :ensure t
   :bind ("M-x" . smex))
 
-(use-package multiple-cursors
-  :ensure t
-  :config
-  (global-set-key (kbd "C-x c") 'mc/edit-lines)
-  (global-set-key (kbd "C-x x") 'mc/mark-all-like-this)
-  (global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "M-n") 'mc/mark-next-like-this))
-
 (use-package fiplr
   ;; :disabled
   :config
@@ -48,9 +40,12 @@
   (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package dockerfile-mode
-  :mode "Dockerfile\\'")
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("Dockerfile-?.+\\'" . dockerfile-mode)))
 
-(use-package docker-compose-mode)
+(use-package docker-compose-mode
+  :ensure t)
 
 (use-package ediff
   :config
@@ -205,17 +200,28 @@
   :init
   (add-hook 'after-init-hook #'server-start t))
 
-(use-package exec-path-from-shell
-  :if (memq system-type '(gnu gnu/linux darwin))
-  :init
-  (customize-set-variable 'exec-path-from-shell-arguments nil)
+;; (use-package exec-path-from-shell
+;;   :if (memq system-type '(gnu gnu/linux darwin))
+;;   :init
+;;   (customize-set-variable 'exec-path-from-shell-arguments nil)
+;;   :config
+;;   (exec-path-from-shell-initialize)
+;;   (exec-path-from-shell-copy-env "GOPATH")
+;;   (exec-path-from-shell-copy-env "RUST_SRC_PATH")
+;;   (exec-path-from-shell-copy-env "WORKON_HOME"))
+
+(use-package shell-pop
+  :ensure t
+  :bind ("C-t" . shell-pop)
   :config
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH")
-  (exec-path-from-shell-copy-env "RUST_SRC_PATH")
-  (exec-path-from-shell-copy-env "WORKON_HOME"))
+  (setq
+   shell-pop-term-shell "/bin/zsh"
+   shell-pop-full-span t
+   shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell))))))
+
 
 (use-package multiple-cursors
+  :ensure t
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
 	 ("C-c C-<" . mc/mark-all-like-this)))
