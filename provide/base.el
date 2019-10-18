@@ -37,6 +37,8 @@
 
 (setq
  confirm-kill-emacs                  'y-or-n-p
+ inhibit-splash-screen               t
+ initial-scratch-message             ""
  confirm-nonexistent-file-or-buffer  t
  save-interprogram-paste-before-kill t
  mouse-yank-at-point                 t
@@ -63,7 +65,7 @@
  cursor-in-non-selected-windows      nil
  highlight-nonselected-windows       nil
  ;; PATH
- exec-path                           (append exec-path '("/usr/local/bin/"))
+ exec-path                           (append exec-path '("/Users/avelino/bin"))
  ;; Backups disabled
  backup-inhibited                    t
  make-backup-files                   nil
@@ -80,8 +82,9 @@
  column-number-mode                  t
  size-indication-mode                t
  ;; shell
- explicit-shell-file-name            "/bin/bash"
- multi-term-program                  "/bin/bash"
+ shell-prog                          "/bin/zsh"
+ explicit-shell-file-name            shell-prog
+ multi-term-program                  shell-prog
  term-buffer-maximum-size            10000
  show-trailing-whitespace            nil
  comint-prompt-read-only             t
@@ -91,12 +94,12 @@
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-(when (  fboundp 'scroll-bar-mode)
+(when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
 ;; Env vars
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
-(setenv "SHELL" "/bin/bash")
+(setenv "SHELL" shell-prog)
 
 (show-paren-mode 1)
 (desktop-save-mode 0)
@@ -104,14 +107,19 @@
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; full screen
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
-(add-to-list 'default-frame-alist '(fullscreen . fullheight))
+;; Fullscreen: call `toggle-frame-fullscreen'
+(toggle-frame-fullscreen)
 
 ;; Highlight BUG FIXME TODO NOTE keywords in the source code.
 (add-hook 'find-file-hook
 	  (lambda()
-	    (highlight-phrase "\\(BUG\\|FIXME\\|TODO\\|NOTE\\):")))
+            (highlight-phrase "\\(BUG\\|FIXME\\|TODO\\|NOTE\\):")))
+
+;; Term
+(add-hook 'term-mode-hook
+          (lambda ()
+            (setq show-trailing-whitespace nil)
+            (autopair-mode -1)))
 
 (provide 'base)
 ;;; base.el ends here
