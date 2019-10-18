@@ -56,12 +56,9 @@
     (setq
      ;; skips 'vendor' directories and sets GO15VENDOREXPERIMENT=1
      flycheck-gometalinter-vendor         t
-     ;; only show errors
-     flycheck-gometalinter-errors-only    t
      ;; only run fast linters
      flycheck-gometalinter-fast           t
-     ;; use in tests files
-     flycheck-gometalinter-test           t
+     flycheck-gometalinter-concurrency    t
      ;; Only enable selected linters
      flycheck-gometalinter-enable-linters '("golint" "gotype" "gocyclo")
      ;; Set different deadline (default: 5s)
