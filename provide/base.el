@@ -88,7 +88,8 @@
  term-buffer-maximum-size            10000
  show-trailing-whitespace            nil
  comint-prompt-read-only             t
- default-frame-alist                 '((font . "Hack Nerd Font-18")))
+ default-frame-alist                 '((font . "Fira Code-18"))
+ fill-prefix                         "")
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
