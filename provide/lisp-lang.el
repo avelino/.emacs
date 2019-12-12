@@ -6,7 +6,8 @@
 
 ;; Lisp
 (use-package lisp-mode
-  :ensure nil
+  :disabled
+  :ensure t
   :bind (:map emacs-lisp-mode-map
               ("M-n" . highlight-symbol-next)
               ("M-p" . highlight-symbol-prev)
@@ -22,6 +23,7 @@
 
 ;; Racket
 (use-package racket-mode
+  :ensure t
   :config
   (add-hook 'racket-mode-hook
 	    (lambda ()
@@ -29,6 +31,12 @@
   (add-hook 'racket-mode-hook      #'racket-unicode-input-method-enable)
   (add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
   (setq tab-always-indent 'complete))
+(use-package flymake-racket
+  :ensure t
+  :commands (flymake-racket-add-hook)
+  :init
+  (add-hook 'scheme-mode-hook #'flymake-racket-add-hook)
+  (add-hook 'racket-mode-hook #'flymake-racket-add-hook))
 
 ;; Scheme
 (use-package geiser)
