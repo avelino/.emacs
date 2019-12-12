@@ -6,7 +6,7 @@
 
 ;; theme: dark
 ;; (use-package monokai-theme)
-(use-package dracula-theme)
+;; (use-package dracula-theme)
 ;; (use-package kaolin-themes
 ;;   :ensure t
 ;;   :defer t
@@ -16,6 +16,11 @@
 ;; (use-package spacemacs-theme
 ;;   :defer t
 ;;   :init (load-theme 'spacemacs-light t))
+
+(use-package one-themes
+  :defer t
+  :init
+  (load-theme 'one-light t))
 
 (use-package color-identifiers-mode
   :ensure t
