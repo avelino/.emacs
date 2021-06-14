@@ -37,9 +37,15 @@
 (define-key ctl-x-r-map "b" 'bookmark-jump-or-find-file)
 
 ;; Apple keyboard (emacs in macOS)
-;; (if (not (display-graphic-p))
-;;     (setq mac-command-modifier 'meta
-;; 	  mac-option-modifier  nil))
+;;(if (not (display-graphic-p))
+;;    (setq mac-command-modifier 'meta
+;;	  mac-option-modifier  nil))
+
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-right-option-modifier 'none
+      mac-option-modifier 'meta)
 
 (provide 'keys)
 
