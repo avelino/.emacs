@@ -5,8 +5,16 @@
 ;;; Code:
 
 ;; theme: dark
-;; (use-package monokai-theme)
-;; (use-package dracula-theme)
+;; (use-package monokai-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'monokai t))
+
+(use-package dracula-theme
+  :ensure t
+  :init
+  (load-theme 'dracula t))
+
 ;; (use-package kaolin-themes
 ;;   :ensure t
 ;;   :defer t
@@ -16,11 +24,10 @@
 ;; (use-package spacemacs-theme
 ;;   :defer t
 ;;   :init (load-theme 'spacemacs-light t))
-
-(use-package one-themes
-  :defer t
-  :init
-  (load-theme 'one-light t))
+;; (use-package one-themes
+;;   :defer t
+;;   :init
+;;   (load-theme 'one-light t))
 
 (use-package color-identifiers-mode
   :ensure t
@@ -33,17 +40,19 @@
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
+;; All the icons
+(use-package all-the-icons
+  :ensure t)
+
 ;; smart-mode-line
 (use-package smart-mode-line
   :ensure t
   :requires all-the-icons
   :config
-  (setq sml/no-confirm-load-theme t)
+  (setq sml/no-confirm-load-theme t
+	sml/theme 'dark)
   (sml/setup))
 
-;; All the icons
-(use-package all-the-icons
-  :ensure t)
 
 ;; Utility package that return vscode icons for Emacs
 (use-package vscode-icon
@@ -52,22 +61,22 @@
   :commands
   (vscode-icon-for-file))
 
-(use-package nlinum
-  :ensure t
-  :hook (prog-mode . nlinum-mode)
+(use-package hlinum
   :config
-  (setq nlinum-format "%4d "
-	nlinum-highlight-current-line 't))
+  (hlinum-activate))
+(use-package linum
+  :config
+  (setq linum-format " %3d ")
+  (global-linum-mode nil))
+(use-package nlinum-hl
+  :ensure t
+  :config
+  (setq nlinum-highlight-current-line t))
 
-(use-package git-gutter-fringe+
-  :ensure t
-  :config
-  (global-git-gutter+-mode t))
-
-(use-package ergoemacs-status
-  :ensure t
-  :config
-  (ergoemacs-status-mode))
+;(use-package ergoemacs-status
+;  :ensure t
+;  :config
+;  (ergoemacs-status-mode))
 
 (use-package spaceline-config           ; A beautiful mode line
   :ensure spaceline
@@ -85,6 +94,17 @@
   :ensure t
   :config
   (fci-mode))
+
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  (setq centaur-tabs-set-bar 'over
+	centaur-tabs-modified-marker "*"
+	centaur-tabs-set-icons t)
+  :bind
+  ("C-<prior>" . centaur-tabs-backward)
+  ("C-<next>" . centaur-tabs-forward))
 
 (provide 'ui)
 
