@@ -10,8 +10,8 @@
 
 (use-package flycheck-elixir)
 
-(use-package flycheck-mix
-  :commands (flycheck-mix-setup))
+;; (use-package flycheck-mix
+;;   :commands (flycheck-mix-setup))
 
 (use-package elixir-mode)
 
