@@ -20,4 +20,6 @@ ido.last
 .last-package-update-day
 .cask
 smex-items
+amx-items
 .mc-lists.el
+transient
