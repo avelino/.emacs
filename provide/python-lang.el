@@ -8,6 +8,7 @@
 ;; pip install flake8
 ;; pip install autopep8
 ;; pip install yapf
+;; pip install ipython
 ;;
 ;;; Code:
 
@@ -26,10 +27,10 @@
 	      ("C-c C-s" . nil))
   :config
   (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-  flycheck-python-flake8-executable "/usr/local/bin/flake8"
   (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
   (setq
    elpy-rpc-backend "jedi"
+   flycheck-python-flake8-executable "flake8"
    python-shell-interpreter "ipython3"
    python-shell-interpreter-args "-i"))
 
@@ -40,6 +41,7 @@
   :ensure t)
 
 (use-package python
+  :disabled
   :ensure t
   :mode ("\\.py" . python-mode)
   :config
