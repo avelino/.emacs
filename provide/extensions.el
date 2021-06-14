@@ -6,9 +6,9 @@
 
 (use-package ag)
 
-(use-package smex
+(use-package amx
   :ensure t
-  :bind ("M-x" . smex))
+  :bind ("M-x" . amx))
 
 (use-package fiplr
   ;; :disabled
@@ -83,9 +83,9 @@
   :config
   (global-hungry-delete-mode))
 
-(use-package git-commit
-  :init
-  (global-git-commit-mode t))
+;; (use-package git-commit
+;;   :init
+;;   (global-git-commit-mode t))
 
 (use-package gitconfig-mode
   :mode (("\\.gitconfig\\'" . gitconfig-mode)
@@ -147,13 +147,6 @@
   (flx-ido-mode t)
   (setq ido-enable-flex-matching t))
 
-(use-package hlinum
-  :config
-  (hlinum-activate))
-(use-package linum
-  :config
-  (setq linum-format " %3d ")
-  (global-linum-mode nil))
 
 (use-package page-break-lines)
 
@@ -179,7 +172,7 @@
   ("C-c y v" . yas-visit-snippet-file)
   :config
   (yas-global-mode 1))
-(use-package yasnippet-snippets)
+; (use-package yasnippet-snippets)
 
 (use-package zoom-window
   :bind
@@ -215,8 +208,8 @@
   :bind ("C-t" . shell-pop)
   :config
   (setq
-   shell-pop-term-shell "/bin/zsh"
-   shell-pop-full-span t
+   shell-pop-term-shell "/bin/bash"
+   ;; shell-pop-full-span t
    shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell))))))
 
 
@@ -234,11 +227,13 @@
   :bind ("M-;" . smart-comment))
 
 (use-package auto-package-update
+  :disabled t
   :ensure t
   :config
+  (auto-package-update-maybe)
   (setq auto-package-update-delete-old-versions t
-	auto-package-update-interval 4)
-  (auto-package-update-maybe))
+	auto-package-update-interval 4))
+
 
 (provide 'extensions)
 
