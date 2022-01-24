@@ -31,6 +31,8 @@
 
 ;; iTerm2
 (global-set-key (kbd "C-'") 'iterm-focus)
+;; (global-set-key (kbd "M-<up>")   'beginning-of-buffer)
+;; (global-set-key (kbd "M-<down>") 'end-of-buffer)
 
 ;; rgrep
 (global-set-key (kbd "C-x C-g") (lambda () (interactive) (call-interactively 'rgrep)))
