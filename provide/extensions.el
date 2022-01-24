@@ -149,7 +149,7 @@
   :config
   (setq projectile-switch-project-action 'projectile-dired
 	projectile-enable-caching t
-	projectile-project-search-path '("~/src/")
+	projectile-project-search-path '("~/projects/")
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
 	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
   (add-hook 'prog-mode-hook 'projectile-mode)
