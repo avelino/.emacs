@@ -174,11 +174,20 @@
   :config
   (setq zoom-window-mode-line-color "#22252c"))
 
+;; yaml
 (use-package yaml-mode
   :init
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
+(use-package flycheck-yamllint
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (eval-after-load 'flycheck
+      '(add-hook 'flycheck-mode-hook 'flycheck-yamllint-setup))))
 
+;; toml
 (use-package toml-mode
   :init
   (add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-mode)))
