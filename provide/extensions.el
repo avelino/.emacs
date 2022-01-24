@@ -19,7 +19,6 @@
   :bind
   ("C-x f" . fiplr-find-file))
 
-
 ;; search displays current match and total matches
 (use-package anzu
   :bind
@@ -43,7 +42,6 @@
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("Dockerfile-?.+\\'" . dockerfile-mode)))
-
 (use-package docker-compose-mode
   :ensure t)
 
@@ -83,19 +81,8 @@
   :config
   (global-hungry-delete-mode))
 
-;; (use-package git-commit
-;;   :init
-;;   (global-git-commit-mode t))
-
-(use-package gitconfig-mode
-  :mode (("\\.gitconfig\\'" . gitconfig-mode)
-	 ("\\.git/config\\'" . gitconfig-mode)
-	 ("\\.gitmodules\\'" . gitconfig-mode)))
-
-(use-package gitignore-mode
-  :mode ("\\.gitignore\\'" . gitignore-mode))
-
 (use-package magit
+  :ensure t
   :bind
   ("C-x g" . magit-status)
   :config
@@ -104,6 +91,14 @@
         magit-process-popup-time 3
 	magit-diff-refine-hunk t)
   (remove-hook 'server-switch-hook 'magit-commit-diff))
+
+;; enable git if in graphical interface (emacs app, not terminal)
+(if (display-graphic-p)
+    (use-package git-gutter-fringe+
+      :ensure t
+      :init (global-git-gutter+-mode))
+    (use-package git-gutter-fringe
+      :ensure t))
 
 (use-package ido
   :ensure t
@@ -146,7 +141,6 @@
   :config
   (flx-ido-mode t)
   (setq ido-enable-flex-matching t))
-
 
 (use-package page-break-lines)
 
