@@ -196,25 +196,20 @@
   :init
   (add-hook 'after-init-hook #'server-start t))
 
-;; (use-package exec-path-from-shell
-;;   :if (memq system-type '(gnu gnu/linux darwin))
-;;   :init
-;;   (customize-set-variable 'exec-path-from-shell-arguments nil)
-;;   :config
-;;   (exec-path-from-shell-initialize)
-;;   (exec-path-from-shell-copy-env "GOPATH")
-;;   (exec-path-from-shell-copy-env "RUST_SRC_PATH")
-;;   (exec-path-from-shell-copy-env "WORKON_HOME"))
-
-(use-package shell-pop
+(use-package vterm-toggle
   :ensure t
-  :bind ("C-t" . shell-pop)
   :config
-  (setq
-   shell-pop-term-shell "/bin/bash"
-   ;; shell-pop-full-span t
-   shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell))))))
-
+  (setq vterm-toggle-fullscreen-p nil)
+  (add-to-list 'display-buffer-alist
+	       '((lambda(bufname _) (with-current-buffer bufname (equal major-mode 'vterm-mode)))
+		 (display-buffer-reuse-window display-buffer-at-bottom)
+                 ;;(display-buffer-reuse-window display-buffer-in-direction)
+                 ;;display-buffer-in-direction/direction/dedicated is added in emacs27
+                 ;;(direction . bottom)
+                 ;;(dedicated . t) ;dedicated is supported in emacs27
+                 (reusable-frames . visible)
+                 (window-height . 0.3)))
+  :bind ("C-t" . vterm-toggle))
 
 (use-package multiple-cursors
   :ensure t
