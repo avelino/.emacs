@@ -160,6 +160,9 @@
   ("C-x p a" . projectile-ag)
   ("C-x p p" . projectile-switch-project))
 
+(use-package workgroups2
+  :ensure t)
+
 (use-package yasnippet
   :bind
   ("C-c y s" . yas-insert-snippet)
