@@ -221,10 +221,12 @@
 	 ("C-c C-<" . mc/mark-all-like-this)))
 
 (use-package editorconfig
+  :ensure t
   :init
   (editorconfig-mode 1))
 
 (use-package smart-comment
+  :ensure t
   :bind ("M-;" . smart-comment))
 
 (use-package auto-package-update
@@ -235,6 +237,9 @@
   (setq auto-package-update-delete-old-versions t
 	auto-package-update-interval 4))
 
+(use-package smartparens
+  :ensure t
+  :init (smartparens-mode 1))
 
 (provide 'extensions)
 
