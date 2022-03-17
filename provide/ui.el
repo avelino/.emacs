@@ -11,9 +11,9 @@
 ;;   (load-theme 'monokai t))
 
 (use-package dracula-theme
-  :ensure t
-  :init
-  (load-theme 'dracula t))
+ :ensure t
+ :init
+ (load-theme 'dracula t))
 
 ;; (use-package kaolin-themes
 ;;   :ensure t
@@ -21,6 +21,10 @@
 ;;   :init (load-theme 'kaolin-bubblegum t))
 
 ;; theme: light
+;; (use-package almost-mono-themes
+;;   :defer t
+;;   :config
+;;   (load-theme 'almost-mono-white t))
 ;; (use-package spacemacs-theme
 ;;   :defer t
 ;;   :init (load-theme 'spacemacs-light t))

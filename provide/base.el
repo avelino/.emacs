@@ -53,7 +53,7 @@
  bookmark-default-file               (concat temp-dir "/bookmarks")
  ;; Disable backups (that's what git/dropbox are for)
  history-length                      1000
- auto-save-default                   nil
+ auto-save-default                   t
  auto-save-list-file-name            (concat temp-dir "/autosave")
  make-backup-files                   nil
  create-lockfiles                    nil
@@ -63,7 +63,7 @@
  cursor-in-non-selected-windows      nil
  highlight-nonselected-windows       nil
  ;; PATH
- exec-path                           (append exec-path '("/Users/avelino/bin"))
+ exec-path                           (append exec-path '("~/bin"))
  ;; Backups disabled
  backup-inhibited                    t
  make-backup-files                   nil
@@ -86,8 +86,11 @@
  term-buffer-maximum-size            10000
  show-trailing-whitespace            nil
  comint-prompt-read-only             t
- default-frame-alist                 '((font . "Fira Code-18"))
- fill-prefix                         "")
+ default-frame-alist                 '((font . "Cascadia Code-20"))
+ fill-prefix                         ""
+ use-dialog-box                      nil
+ use-file-dialog                     nil
+ make-backup-files                   nil)
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
@@ -105,6 +108,10 @@
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; whitespace config
+(require 'whitespace) ;; emacs 23+
+(setq-default whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
 
 ;; Fullscreen: call `toggle-frame-fullscreen'
 (toggle-frame-fullscreen)
