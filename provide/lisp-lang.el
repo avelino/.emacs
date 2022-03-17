@@ -16,6 +16,11 @@
               ("C-M-w" . backward-kill-sexp)
               ("C-M-d" . kill-sexp)))
 
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode))
+
 (use-package flycheck-elsa
   :disabled
   :config
